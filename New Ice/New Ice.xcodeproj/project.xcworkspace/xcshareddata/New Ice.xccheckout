@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>E4BAE1AA-EDC4-48D8-A77F-EDE61FBC3ED4</string>
+	<string>57F9FFDA-DCA3-4EC0-AE85-E0862B78D58F</string>
 	<key>IDESourceControlProjectName</key>
 	<string>New Ice</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>6421C5A1-66D6-4493-ACEC-11BD19123A16</key>
-		<string>ssh://github.com/maximz/newice.git</string>
+		<key>006DA55F-E2DE-48A1-AE1B-6D7963007FCE</key>
+		<string>ssh://github.com/naphatkrit/newice-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>iOS/New Ice/New Ice.xcodeproj/project.xcworkspace</string>
+	<string>New Ice/New Ice.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>6421C5A1-66D6-4493-ACEC-11BD19123A16</key>
-		<string>../../../..</string>
+		<key>006DA55F-E2DE-48A1-AE1B-6D7963007FCE</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/maximz/newice.git</string>
+	<string>ssh://github.com/naphatkrit/newice-ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>6421C5A1-66D6-4493-ACEC-11BD19123A16</string>
+	<string>006DA55F-E2DE-48A1-AE1B-6D7963007FCE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>6421C5A1-66D6-4493-ACEC-11BD19123A16</string>
+			<string>006DA55F-E2DE-48A1-AE1B-6D7963007FCE</string>
 			<key>IDESourceControlWCCName</key>
-			<string>newice</string>
+			<string>newice-iOS</string>
 		</dict>
 	</array>
 </dict>
