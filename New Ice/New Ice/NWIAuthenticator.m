@@ -33,6 +33,15 @@
 -(void)showAuthenticationViewIfNeeded
 {
     if (self.authenticated) {
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8000/verify"]];
+        NSURLResponse *response;
+        NSError *error;
+        NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        NSString *returnedValue = [[NSString alloc] initWithData:data encoding:NSStringEncodingConversionAllowLossy];
+        if (![returnedValue isEqualToString:@"1"] || error) {
+            self.netid = nil;
+            [self showAuthenticationViewIfNeeded];
+        }
         return;
     }
     

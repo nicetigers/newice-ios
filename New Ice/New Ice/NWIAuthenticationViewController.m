@@ -52,8 +52,8 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    NSString *netid = [webView stringByEvaluatingJavaScriptFromString:@"$.cookie('netid')"];
-    if (netid)
+    NSString *netid = [webView stringByEvaluatingJavaScriptFromString:@"USER_NETID"];
+    if (netid && ![netid isEqualToString:@""])
     {
         if ([self.authDelegate authenticationViewController:self didLoginWithUserName:netid])
             [self dismissViewControllerAnimated:YES completion:nil];
