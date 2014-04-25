@@ -2,7 +2,7 @@
 //  Section.m
 //  New Ice
 //
-//  Created by Naphat Sanguansin on 4/23/14.
+//  Created by Naphat Sanguansin on 4/25/14.
 //
 //
 
@@ -17,7 +17,7 @@
 @dynamic name;
 @dynamic sectionType;
 @dynamic course;
-@dynamic eventGroups;
 @dynamic enrollment;
+@dynamic eventGroups;
 
 @end

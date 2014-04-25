@@ -2,20 +2,23 @@
 //  EventGroup.m
 //  New Ice
 //
-//  Created by Naphat Sanguansin on 4/23/14.
+//  Created by Naphat Sanguansin on 4/25/14.
 //
 //
 
 #import "EventGroup.h"
 #import "Event.h"
-#import "EventGroupRevision.h"
 #import "Section.h"
 
 
 @implementation EventGroup
 
-@dynamic section;
-@dynamic revisions;
+@dynamic startDate;
+@dynamic endDate;
+@dynamic modifiedTime;
+@dynamic recurrenceDays;
+@dynamic recurrenceInterval;
 @dynamic events;
+@dynamic section;
 
 @end

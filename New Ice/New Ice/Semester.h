@@ -2,7 +2,7 @@
 //  Semester.h
 //  New Ice
 //
-//  Created by Naphat Sanguansin on 4/23/14.
+//  Created by Naphat Sanguansin on 4/25/14.
 //
 //
 
@@ -14,9 +14,9 @@
 
 @interface Semester : ServerObject
 
+@property (nonatomic, retain) NSDate * endDate;
 @property (nonatomic, retain) NSDate * startDate;
 @property (nonatomic, retain) NSString * termCode;
-@property (nonatomic, retain) NSDate * endDate;
 @property (nonatomic, retain) NSSet *courses;
 @end
 

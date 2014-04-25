@@ -2,7 +2,7 @@
 //  User.h
 //  New Ice
 //
-//  Created by Naphat Sanguansin on 4/23/14.
+//  Created by Naphat Sanguansin on 4/25/14.
 //
 //
 
@@ -13,9 +13,9 @@
 
 @interface User : NSManagedObject
 
-@property (nonatomic, retain) NSString * netid;
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSDate * lastActivityTime;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * netid;
 @property (nonatomic, retain) NSSet *enrollment;
 @end
 

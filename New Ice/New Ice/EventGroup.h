@@ -2,7 +2,7 @@
 //  EventGroup.h
 //  New Ice
 //
-//  Created by Naphat Sanguansin on 4/23/14.
+//  Created by Naphat Sanguansin on 4/25/14.
 //
 //
 
@@ -10,21 +10,20 @@
 #import <CoreData/CoreData.h>
 #import "ServerObject.h"
 
-@class Event, EventGroupRevision, Section;
+@class Event, Section;
 
 @interface EventGroup : ServerObject
 
-@property (nonatomic, retain) Section *section;
-@property (nonatomic, retain) NSSet *revisions;
+@property (nonatomic, retain) NSDate * startDate;
+@property (nonatomic, retain) NSDate * endDate;
+@property (nonatomic, retain) NSDate * modifiedTime;
+@property (nonatomic, retain) NSString * recurrenceDays;
+@property (nonatomic, retain) NSNumber * recurrenceInterval;
 @property (nonatomic, retain) NSSet *events;
+@property (nonatomic, retain) Section *section;
 @end
 
 @interface EventGroup (CoreDataGeneratedAccessors)
-
-- (void)addRevisionsObject:(EventGroupRevision *)value;
-- (void)removeRevisionsObject:(EventGroupRevision *)value;
-- (void)addRevisions:(NSSet *)values;
-- (void)removeRevisions:(NSSet *)values;
 
 - (void)addEventsObject:(Event *)value;
 - (void)removeEventsObject:(Event *)value;

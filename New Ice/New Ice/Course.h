@@ -2,7 +2,7 @@
 //  Course.h
 //  New Ice
 //
-//  Created by Naphat Sanguansin on 4/23/14.
+//  Created by Naphat Sanguansin on 4/25/14.
 //
 //
 
@@ -14,13 +14,12 @@
 
 @interface Course : ServerObject
 
-@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * courseListings;
 @property (nonatomic, retain) NSString * desc;
 @property (nonatomic, retain) NSString * professor;
-@property (nonatomic, retain) NSString * registrarID;
-@property (nonatomic, retain) NSString * courseListings;
-@property (nonatomic, retain) Semester *semester;
+@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSSet *sections;
+@property (nonatomic, retain) Semester *semester;
 @end
 
 @interface Course (CoreDataGeneratedAccessors)

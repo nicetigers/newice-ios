@@ -10,8 +10,11 @@
 #import "NWIAuthenticationViewController.h"
 #import "NWIAuthenticator.h"
 
+
 @interface NWIAuthenticator ()
-@property (nonatomic, strong) NSString *netid;
+
+@property (nonatomic, strong) CompletionBlock completion;
+
 @end
 
 @implementation NWIAuthenticator
@@ -30,7 +33,7 @@
     return self.netid != nil;
 }
 
--(void)showAuthenticationViewIfNeeded
+-(void)showAuthenticationViewIfNeededWithCompletionHandler:(CompletionBlock)completion
 {
     if (self.authenticated) {
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8000/verify"]];
@@ -40,7 +43,11 @@
         NSString *returnedValue = [[NSString alloc] initWithData:data encoding:NSStringEncodingConversionAllowLossy];
         if (![returnedValue isEqualToString:@"1"] || error) {
             self.netid = nil;
-            [self showAuthenticationViewIfNeeded];
+            [self showAuthenticationViewIfNeededWithCompletionHandler:completion];
+        } else {
+            if (completion) {
+                completion(YES);
+            }
         }
         return;
     }
@@ -49,12 +56,17 @@
     NWIAuthenticationViewController *authVC = [delegate.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"authentication"];
     authVC.authDelegate = self;
     [delegate.window.rootViewController presentViewController:authVC animated:YES completion:nil];
+    self.completion = completion;
 }
 
 -(BOOL)authenticationViewController:(NWIAuthenticationViewController *)authVC didLoginWithUserName:(NSString *)userName
 {
     self.netid = userName;
-    [[NSUserDefaults standardUserDefaults] setObject:self.netid forKey:@"netid"];
+    [[NSUserDefaults standardUserDefaults] setObject:userName forKey:@"netid"];
+    if (self.completion) {
+        self.completion(YES);
+        self.completion = nil;
+    }
     return YES;
 }
 

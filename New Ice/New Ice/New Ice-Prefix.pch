@@ -14,4 +14,5 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #define NOTIF_VIEW_VISIBLE @"view-visible-notif"
+    #define SERVER_URL @"http://localhost:8000"
 #endif

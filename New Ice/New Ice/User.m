@@ -2,7 +2,7 @@
 //  User.m
 //  New Ice
 //
-//  Created by Naphat Sanguansin on 4/23/14.
+//  Created by Naphat Sanguansin on 4/25/14.
 //
 //
 
@@ -12,9 +12,9 @@
 
 @implementation User
 
-@dynamic netid;
-@dynamic name;
 @dynamic lastActivityTime;
+@dynamic name;
+@dynamic netid;
 @dynamic enrollment;
 
 @end

@@ -2,7 +2,7 @@
 //  Semester.m
 //  New Ice
 //
-//  Created by Naphat Sanguansin on 4/23/14.
+//  Created by Naphat Sanguansin on 4/25/14.
 //
 //
 
@@ -12,9 +12,9 @@
 
 @implementation Semester
 
+@dynamic endDate;
 @dynamic startDate;
 @dynamic termCode;
-@dynamic endDate;
 @dynamic courses;
 
 @end

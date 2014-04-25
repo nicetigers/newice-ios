@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		816616B6190AE82B00331B6C /* NWIServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616B5190AE82B00331B6C /* NWIServerConnection.m */; };
+		816616D1190B044D00331B6C /* EventGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616D0190B044D00331B6C /* EventGroup.m */; };
+		816616D4190B044E00331B6C /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616D3190B044E00331B6C /* Section.m */; };
+		816616D7190B044E00331B6C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616D6190B044E00331B6C /* User.m */; };
+		816616DA190B044E00331B6C /* Semester.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616D9190B044E00331B6C /* Semester.m */; };
+		816616DD190B044E00331B6C /* ServerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616DC190B044E00331B6C /* ServerObject.m */; };
+		816616E0190B044E00331B6C /* UserSectionTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616DF190B044E00331B6C /* UserSectionTable.m */; };
+		816616E6190B044E00331B6C /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616E5190B044E00331B6C /* Event.m */; };
+		816616E9190B04AC00331B6C /* NWICourseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616E8190B04AC00331B6C /* NWICourseManager.m */; };
+		816616EB190B07D800331B6C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816616EA190B07D800331B6C /* CoreData.framework */; };
+		816616EE190B0B2700331B6C /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616ED190B0B2700331B6C /* Course.m */; };
 		816C9CF91907DCD4005D8243 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816C9CF81907DCD4005D8243 /* Foundation.framework */; };
 		816C9CFB1907DCD4005D8243 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816C9CFA1907DCD4005D8243 /* CoreGraphics.framework */; };
 		816C9CFD1907DCD4005D8243 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816C9CFC1907DCD4005D8243 /* UIKit.framework */; };
@@ -23,16 +34,6 @@
 		816C9D251907DCD4005D8243 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 816C9D231907DCD4005D8243 /* InfoPlist.strings */; };
 		816C9D271907DCD4005D8243 /* New_IceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 816C9D261907DCD4005D8243 /* New_IceTests.m */; };
 		81A01A6D1907EC07003CABBF /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81A01A6B1907EC06003CABBF /* Model.xcdatamodeld */; };
-		81A01A8F1907F6C7003CABBF /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01A8E1907F6C7003CABBF /* Section.m */; };
-		81A01A921907F6C7003CABBF /* UserSectionTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01A911907F6C7003CABBF /* UserSectionTable.m */; };
-		81A01A951907F6C7003CABBF /* EventGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01A941907F6C7003CABBF /* EventGroup.m */; };
-		81A01A981907F6C7003CABBF /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01A971907F6C7003CABBF /* User.m */; };
-		81A01A9B1907F6C7003CABBF /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01A9A1907F6C7003CABBF /* Course.m */; };
-		81A01A9E1907F6C7003CABBF /* ServerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01A9D1907F6C7003CABBF /* ServerObject.m */; };
-		81A01AA11907F6C7003CABBF /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01AA01907F6C7003CABBF /* Event.m */; };
-		81A01AA41907F6C7003CABBF /* EventGroupRevision.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01AA31907F6C7003CABBF /* EventGroupRevision.m */; };
-		81A01AA71907F6C8003CABBF /* EventRevision.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01AA61907F6C8003CABBF /* EventRevision.m */; };
-		81A01AAA1907F6C8003CABBF /* Semester.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01AA91907F6C8003CABBF /* Semester.m */; };
 		81A01AB319082734003CABBF /* NWIAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01AB219082734003CABBF /* NWIAuthenticator.m */; };
 		81A01AB619082A7B003CABBF /* NWIAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01AB519082A7B003CABBF /* NWIAuthenticationViewController.m */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		816616B4190AE82B00331B6C /* NWIServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIServerConnection.h; sourceTree = "<group>"; };
+		816616B5190AE82B00331B6C /* NWIServerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIServerConnection.m; sourceTree = "<group>"; };
+		816616CF190B044D00331B6C /* EventGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventGroup.h; sourceTree = "<group>"; };
+		816616D0190B044D00331B6C /* EventGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventGroup.m; sourceTree = "<group>"; };
+		816616D2190B044E00331B6C /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		816616D3190B044E00331B6C /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
+		816616D5190B044E00331B6C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		816616D6190B044E00331B6C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		816616D8190B044E00331B6C /* Semester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Semester.h; sourceTree = "<group>"; };
+		816616D9190B044E00331B6C /* Semester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Semester.m; sourceTree = "<group>"; };
+		816616DB190B044E00331B6C /* ServerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerObject.h; sourceTree = "<group>"; };
+		816616DC190B044E00331B6C /* ServerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerObject.m; sourceTree = "<group>"; };
+		816616DE190B044E00331B6C /* UserSectionTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSectionTable.h; sourceTree = "<group>"; };
+		816616DF190B044E00331B6C /* UserSectionTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSectionTable.m; sourceTree = "<group>"; };
+		816616E4190B044E00331B6C /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		816616E5190B044E00331B6C /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		816616E7190B04AC00331B6C /* NWICourseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWICourseManager.h; sourceTree = "<group>"; };
+		816616E8190B04AC00331B6C /* NWICourseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWICourseManager.m; sourceTree = "<group>"; };
+		816616EA190B07D800331B6C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		816616EC190B0B2700331B6C /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		816616ED190B0B2700331B6C /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		816C9CF51907DCD4005D8243 /* New Ice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "New Ice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		816C9CF81907DCD4005D8243 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		816C9CFA1907DCD4005D8243 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -69,26 +91,6 @@
 		816C9D241907DCD4005D8243 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		816C9D261907DCD4005D8243 /* New_IceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = New_IceTests.m; sourceTree = "<group>"; };
 		81A01A6C1907EC07003CABBF /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		81A01A8D1907F6C7003CABBF /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
-		81A01A8E1907F6C7003CABBF /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
-		81A01A901907F6C7003CABBF /* UserSectionTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSectionTable.h; sourceTree = "<group>"; };
-		81A01A911907F6C7003CABBF /* UserSectionTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSectionTable.m; sourceTree = "<group>"; };
-		81A01A931907F6C7003CABBF /* EventGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventGroup.h; sourceTree = "<group>"; };
-		81A01A941907F6C7003CABBF /* EventGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventGroup.m; sourceTree = "<group>"; };
-		81A01A961907F6C7003CABBF /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		81A01A971907F6C7003CABBF /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		81A01A991907F6C7003CABBF /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
-		81A01A9A1907F6C7003CABBF /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
-		81A01A9C1907F6C7003CABBF /* ServerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerObject.h; sourceTree = "<group>"; };
-		81A01A9D1907F6C7003CABBF /* ServerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerObject.m; sourceTree = "<group>"; };
-		81A01A9F1907F6C7003CABBF /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		81A01AA01907F6C7003CABBF /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		81A01AA21907F6C7003CABBF /* EventGroupRevision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventGroupRevision.h; sourceTree = "<group>"; };
-		81A01AA31907F6C7003CABBF /* EventGroupRevision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventGroupRevision.m; sourceTree = "<group>"; };
-		81A01AA51907F6C8003CABBF /* EventRevision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventRevision.h; sourceTree = "<group>"; };
-		81A01AA61907F6C8003CABBF /* EventRevision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventRevision.m; sourceTree = "<group>"; };
-		81A01AA81907F6C8003CABBF /* Semester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Semester.h; sourceTree = "<group>"; };
-		81A01AA91907F6C8003CABBF /* Semester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Semester.m; sourceTree = "<group>"; };
 		81A01AB119082734003CABBF /* NWIAuthenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIAuthenticator.h; sourceTree = "<group>"; };
 		81A01AB219082734003CABBF /* NWIAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIAuthenticator.m; sourceTree = "<group>"; };
 		81A01AB419082A7B003CABBF /* NWIAuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIAuthenticationViewController.h; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				816616EB190B07D800331B6C /* CoreData.framework in Frameworks */,
 				816C9CFB1907DCD4005D8243 /* CoreGraphics.framework in Frameworks */,
 				816C9CFD1907DCD4005D8243 /* UIKit.framework in Frameworks */,
 				816C9CF91907DCD4005D8243 /* Foundation.framework in Frameworks */,
@@ -141,6 +144,7 @@
 		816C9CF71907DCD4005D8243 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				816616EA190B07D800331B6C /* CoreData.framework */,
 				816C9CF81907DCD4005D8243 /* Foundation.framework */,
 				816C9CFA1907DCD4005D8243 /* CoreGraphics.framework */,
 				816C9CFC1907DCD4005D8243 /* UIKit.framework */,
@@ -199,26 +203,26 @@
 			isa = PBXGroup;
 			children = (
 				81A01A6B1907EC06003CABBF /* Model.xcdatamodeld */,
-				81A01AA81907F6C8003CABBF /* Semester.h */,
-				81A01AA91907F6C8003CABBF /* Semester.m */,
-				81A01AA51907F6C8003CABBF /* EventRevision.h */,
-				81A01AA61907F6C8003CABBF /* EventRevision.m */,
-				81A01AA21907F6C7003CABBF /* EventGroupRevision.h */,
-				81A01AA31907F6C7003CABBF /* EventGroupRevision.m */,
-				81A01A9F1907F6C7003CABBF /* Event.h */,
-				81A01AA01907F6C7003CABBF /* Event.m */,
-				81A01A9C1907F6C7003CABBF /* ServerObject.h */,
-				81A01A9D1907F6C7003CABBF /* ServerObject.m */,
-				81A01A991907F6C7003CABBF /* Course.h */,
-				81A01A9A1907F6C7003CABBF /* Course.m */,
-				81A01A961907F6C7003CABBF /* User.h */,
-				81A01A971907F6C7003CABBF /* User.m */,
-				81A01A931907F6C7003CABBF /* EventGroup.h */,
-				81A01A941907F6C7003CABBF /* EventGroup.m */,
-				81A01A901907F6C7003CABBF /* UserSectionTable.h */,
-				81A01A911907F6C7003CABBF /* UserSectionTable.m */,
-				81A01A8D1907F6C7003CABBF /* Section.h */,
-				81A01A8E1907F6C7003CABBF /* Section.m */,
+				816616B4190AE82B00331B6C /* NWIServerConnection.h */,
+				816616B5190AE82B00331B6C /* NWIServerConnection.m */,
+				816616E7190B04AC00331B6C /* NWICourseManager.h */,
+				816616E8190B04AC00331B6C /* NWICourseManager.m */,
+				816616EC190B0B2700331B6C /* Course.h */,
+				816616ED190B0B2700331B6C /* Course.m */,
+				816616CF190B044D00331B6C /* EventGroup.h */,
+				816616D0190B044D00331B6C /* EventGroup.m */,
+				816616D2190B044E00331B6C /* Section.h */,
+				816616D3190B044E00331B6C /* Section.m */,
+				816616D5190B044E00331B6C /* User.h */,
+				816616D6190B044E00331B6C /* User.m */,
+				816616D8190B044E00331B6C /* Semester.h */,
+				816616D9190B044E00331B6C /* Semester.m */,
+				816616DB190B044E00331B6C /* ServerObject.h */,
+				816616DC190B044E00331B6C /* ServerObject.m */,
+				816616DE190B044E00331B6C /* UserSectionTable.h */,
+				816616DF190B044E00331B6C /* UserSectionTable.m */,
+				816616E4190B044E00331B6C /* Event.h */,
+				816616E5190B044E00331B6C /* Event.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -332,22 +336,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81A01A9B1907F6C7003CABBF /* Course.m in Sources */,
-				81A01A9E1907F6C7003CABBF /* ServerObject.m in Sources */,
-				81A01A921907F6C7003CABBF /* UserSectionTable.m in Sources */,
-				81A01AAA1907F6C8003CABBF /* Semester.m in Sources */,
-				81A01AA41907F6C7003CABBF /* EventGroupRevision.m in Sources */,
 				816C9D051907DCD4005D8243 /* main.m in Sources */,
-				81A01AA11907F6C7003CABBF /* Event.m in Sources */,
+				816616DA190B044E00331B6C /* Semester.m in Sources */,
+				816616B6190AE82B00331B6C /* NWIServerConnection.m in Sources */,
+				816616D1190B044D00331B6C /* EventGroup.m in Sources */,
+				816616EE190B0B2700331B6C /* Course.m in Sources */,
+				816616D7190B044E00331B6C /* User.m in Sources */,
 				816C9D091907DCD4005D8243 /* NWIAppDelegate.m in Sources */,
-				81A01A981907F6C7003CABBF /* User.m in Sources */,
+				816616E9190B04AC00331B6C /* NWICourseManager.m in Sources */,
 				81A01AB319082734003CABBF /* NWIAuthenticator.m in Sources */,
 				816C9D121907DCD4005D8243 /* NWIViewController.m in Sources */,
+				816616DD190B044E00331B6C /* ServerObject.m in Sources */,
 				81A01AB619082A7B003CABBF /* NWIAuthenticationViewController.m in Sources */,
+				816616E0190B044E00331B6C /* UserSectionTable.m in Sources */,
+				816616E6190B044E00331B6C /* Event.m in Sources */,
+				816616D4190B044E00331B6C /* Section.m in Sources */,
 				81A01A6D1907EC07003CABBF /* Model.xcdatamodeld in Sources */,
-				81A01A8F1907F6C7003CABBF /* Section.m in Sources */,
-				81A01A951907F6C7003CABBF /* EventGroup.m in Sources */,
-				81A01AA71907F6C8003CABBF /* EventRevision.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
