@@ -36,6 +36,7 @@
 		81A01A6D1907EC07003CABBF /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81A01A6B1907EC06003CABBF /* Model.xcdatamodeld */; };
 		81A01AB319082734003CABBF /* NWIAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01AB219082734003CABBF /* NWIAuthenticator.m */; };
 		81A01AB619082A7B003CABBF /* NWIAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01AB519082A7B003CABBF /* NWIAuthenticationViewController.m */; };
+		81EC49C4190BE2F500B370CA /* NWIEventsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EC49C3190BE2F500B370CA /* NWIEventsManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,8 @@
 		81A01AB219082734003CABBF /* NWIAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIAuthenticator.m; sourceTree = "<group>"; };
 		81A01AB419082A7B003CABBF /* NWIAuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIAuthenticationViewController.h; sourceTree = "<group>"; };
 		81A01AB519082A7B003CABBF /* NWIAuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIAuthenticationViewController.m; sourceTree = "<group>"; };
+		81EC49C2190BE2F500B370CA /* NWIEventsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIEventsManager.h; sourceTree = "<group>"; };
+		81EC49C3190BE2F500B370CA /* NWIEventsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIEventsManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +210,8 @@
 				816616B5190AE82B00331B6C /* NWIServerConnection.m */,
 				816616E7190B04AC00331B6C /* NWICourseManager.h */,
 				816616E8190B04AC00331B6C /* NWICourseManager.m */,
+				81EC49C2190BE2F500B370CA /* NWIEventsManager.h */,
+				81EC49C3190BE2F500B370CA /* NWIEventsManager.m */,
 				816616EC190B0B2700331B6C /* Course.h */,
 				816616ED190B0B2700331B6C /* Course.m */,
 				816616CF190B044D00331B6C /* EventGroup.h */,
@@ -340,6 +345,7 @@
 				816616DA190B044E00331B6C /* Semester.m in Sources */,
 				816616B6190AE82B00331B6C /* NWIServerConnection.m in Sources */,
 				816616D1190B044D00331B6C /* EventGroup.m in Sources */,
+				81EC49C4190BE2F500B370CA /* NWIEventsManager.m in Sources */,
 				816616EE190B0B2700331B6C /* Course.m in Sources */,
 				816616D7190B044E00331B6C /* User.m in Sources */,
 				816C9D091907DCD4005D8243 /* NWIAppDelegate.m in Sources */,

@@ -3,10 +3,9 @@
     <entity name="Course" representedClassName="Course" parentEntity="ServerObject" syncable="YES">
         <attribute name="courseListings" attributeType="String" syncable="YES"/>
         <attribute name="desc" attributeType="String" syncable="YES"/>
-        <attribute name="professor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="sections" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Section" inverseName="course" inverseEntity="Section" syncable="YES"/>
-        <relationship name="semester" maxCount="1" deletionRule="Nullify" destinationEntity="Semester" inverseName="courses" inverseEntity="Semester" syncable="YES"/>
+        <relationship name="semester" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Semester" inverseName="courses" inverseEntity="Semester" syncable="YES"/>
     </entity>
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="eventDescription" attributeType="String" syncable="YES"/>
@@ -74,10 +73,11 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="enrollment" inverseEntity="User" syncable="YES"/>
     </entity>
     <fetchRequest name="CourseByID" entity="Course" predicateString="serverID == $SERV_ID"/>
+    <fetchRequest name="Enrollment" entity="UserSectionTable" predicateString="section == $SECTION AND user == $USER"/>
     <fetchRequest name="SectionByID" entity="Section" predicateString="serverID == $SERV_ID"/>
     <fetchRequest name="UserByNetID" entity="User" predicateString="netid == $NET_ID"/>
     <elements>
-        <element name="Course" positionX="-5420" positionY="-3537" width="128" height="133"/>
+        <element name="Course" positionX="-5420" positionY="-3537" width="128" height="120"/>
         <element name="Event" positionX="-5211" positionY="-3133" width="128" height="163"/>
         <element name="EventGroup" positionX="-5213" positionY="-3366" width="128" height="148"/>
         <element name="Section" positionX="-5213" positionY="-3546" width="128" height="118"/>

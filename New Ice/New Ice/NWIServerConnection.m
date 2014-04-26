@@ -9,18 +9,29 @@
 #import "NWIServerConnection.h"
 #import "NWIAppDelegate.h"
 #import "NWIAuthenticator.h"
+
+#import "NWICourseManager.h"
+#import "NWIEventsManager.h"
+
 #import "User.h"
+#import "Course.h"
+#import "Section.h"
+#import "UserSectionTable.h"
 
 @interface NWIServerConnection ()
 
 @property (nonatomic, strong) NSDate *lastConnected;
 @property (nonatomic, strong) NSString *netid;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NWICourseManager *courseManager;
+@property (nonatomic, strong) NWIEventsManager *eventsManager;
 
 -(void)pull;
 -(void)pullUserByNetID:(NSString *)netID makeAsynchronous:(BOOL)async;
 -(void)processDownloadedUserData:(NSData *)data;
 -(User *)getUserByNetID:(NSString *)netID;
+-(void)syncEnrollmentForUser:(User *)user;
+-(void)getEventsForEnrolledCourses:(User *)user;
 
 
 @end
@@ -40,7 +51,8 @@
 -(void)pull
 {
     User *curUser = [self getUserByNetID:self.netid];
-    
+    [self syncEnrollmentForUser:curUser];
+    [self getEventsForEnrolledCourses:curUser];
 }
 
 #pragma mark Downloading/saving user data
@@ -97,6 +109,62 @@
     }
 }
 
+#pragma mark Enrollment
+
+-(void)syncEnrollmentForUser:(User *)user
+{
+    NSDictionary *courseSectionsMap = [self.courseManager getCourseSectionsMap];
+    for (NSString *courseID in courseSectionsMap.allKeys) {
+        Course *courseObject = [self.courseManager getCourseByID:courseID.integerValue];
+        for (NSNumber *sectionID in courseSectionsMap[courseID]) {
+            Section *sectionObject = nil;
+            for (Section *someSection in courseObject.sections) {
+                if ([someSection.serverID isEqualToNumber:sectionID]) {
+                    sectionObject = someSection;
+                }
+            }
+            if (sectionObject) {
+                [self enrollUser:user inSection:sectionObject];
+            }
+        }
+    }
+}
+-(void)enrollUser:(User *)user inSection:(Section *)sectionObject
+{
+    NSError *error;
+    NSManagedObjectModel *model = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel;
+    NSFetchRequest *fetchRequest = [model fetchRequestFromTemplateWithName:@"Enrollment" substitutionVariables:@{@"USER":  user.objectID, @"SECTION": sectionObject.objectID}];
+    NSArray *fetched = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        NSLog(@"Error getting enrollment for user %@ and section %@. \n Error: %@", user.netid, sectionObject.name, error.description);
+        return;
+    }
+    if (fetched.count == 0)
+    {
+        UserSectionTable *enrollmentObject = [NSEntityDescription insertNewObjectForEntityForName:@"UserSectionTable" inManagedObjectContext:self.managedObjectContext];
+        enrollmentObject.user = user;
+        enrollmentObject.section = sectionObject;
+        enrollmentObject.addDate = [NSDate date];
+        [self.managedObjectContext save:&error];
+        if (error) {
+            NSLog(@"Error saving enrollment for user %@ and section %@. \n Error: %@", user.netid, sectionObject.name, error.description);
+            return;
+        }
+    }
+}
+
+#pragma mark Events
+-(void)getEventsForEnrolledCourses:(User *)user
+{
+    NSMutableSet *courseSet = [NSMutableSet new];
+    for (UserSectionTable *enrollmentObject in user.enrollment) {
+        [courseSet addObject:enrollmentObject.section.course];
+    }
+    for (Course *courseObject in courseSet) {
+        [self.eventsManager pullEventsForCourseID:courseObject.serverID.integerValue];
+    }
+}
+
 #pragma mark - getters/setters methods
 
 -(NSString *)netid
@@ -120,7 +188,7 @@
     if (fetched.count > 0) {
         return fetched.lastObject;
     }
-    // must download course first
+    // must download user first
     [self pullUserByNetID:netID makeAsynchronous:NO];
     return [self getUserByNetID:netID]; // DANGER can go into infinite loop if given errorneous netID
 }
@@ -134,6 +202,22 @@
         _managedObjectContext.persistentStoreCoordinator = coordinator;
     }
     return _managedObjectContext;
+}
+-(NWICourseManager *)courseManager
+{
+    if (!_courseManager) {
+        _courseManager = [NWICourseManager new];
+        _courseManager.managedObjectContext = self.managedObjectContext;
+    }
+    return _courseManager;
+}
+-(NWIEventsManager *)eventsManager
+{
+    if (!_eventsManager) {
+        _eventsManager = [NWIEventsManager new];
+        _eventsManager.managedObjectContext = self.managedObjectContext;
+    }
+    return _eventsManager;
 }
 
 @end

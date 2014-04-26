@@ -23,7 +23,10 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:NOTIF_VIEW_VISIBLE object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self.authenticator showAuthenticationViewIfNeededWithCompletionHandler:^(BOOL completed) {
             if (completed) {
-                [self.serverConnection sync];
+                NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+                [queue addOperationWithBlock:^{
+                    [self.serverConnection sync];
+                }];
             }
         }];
     }];

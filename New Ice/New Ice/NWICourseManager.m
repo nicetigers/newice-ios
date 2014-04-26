@@ -38,6 +38,23 @@
     return [self getCourseByID:courseID]; // DANGER can go into infinite loop if given errorneous course ID
 }
 
+-(NSDictionary *)getCourseSectionsMap;
+{
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/get/sections", SERVER_URL]]];
+    NSURLResponse *response;
+    NSError *error;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error) {
+        NSLog(@"Error downloading course sections map. \n Error: %@", error.description);
+        return nil;
+    }
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
+        NSLog(@"Error parsing json. \n Error: %@", error.description);
+    }
+    return dict;
+}
+
 -(void)pullCourseByID:(NSInteger)courseID makeAsynchronous:(BOOL)async
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/get/course/%d", SERVER_URL, courseID]]];
