@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		810A150A190C239F0094BC61 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 810A1509190C239F0094BC61 /* Event.m */; };
 		816616B6190AE82B00331B6C /* NWIServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616B5190AE82B00331B6C /* NWIServerConnection.m */; };
 		816616D1190B044D00331B6C /* EventGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616D0190B044D00331B6C /* EventGroup.m */; };
 		816616D4190B044E00331B6C /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616D3190B044E00331B6C /* Section.m */; };
@@ -14,7 +15,6 @@
 		816616DA190B044E00331B6C /* Semester.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616D9190B044E00331B6C /* Semester.m */; };
 		816616DD190B044E00331B6C /* ServerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616DC190B044E00331B6C /* ServerObject.m */; };
 		816616E0190B044E00331B6C /* UserSectionTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616DF190B044E00331B6C /* UserSectionTable.m */; };
-		816616E6190B044E00331B6C /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616E5190B044E00331B6C /* Event.m */; };
 		816616E9190B04AC00331B6C /* NWICourseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616E8190B04AC00331B6C /* NWICourseManager.m */; };
 		816616EB190B07D800331B6C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816616EA190B07D800331B6C /* CoreData.framework */; };
 		816616EE190B0B2700331B6C /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616ED190B0B2700331B6C /* Course.m */; };
@@ -50,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		810A1508190C239F0094BC61 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		810A1509190C239F0094BC61 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		816616B4190AE82B00331B6C /* NWIServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIServerConnection.h; sourceTree = "<group>"; };
 		816616B5190AE82B00331B6C /* NWIServerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIServerConnection.m; sourceTree = "<group>"; };
 		816616CF190B044D00331B6C /* EventGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventGroup.h; sourceTree = "<group>"; };
@@ -64,8 +66,6 @@
 		816616DC190B044E00331B6C /* ServerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerObject.m; sourceTree = "<group>"; };
 		816616DE190B044E00331B6C /* UserSectionTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSectionTable.h; sourceTree = "<group>"; };
 		816616DF190B044E00331B6C /* UserSectionTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSectionTable.m; sourceTree = "<group>"; };
-		816616E4190B044E00331B6C /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		816616E5190B044E00331B6C /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		816616E7190B04AC00331B6C /* NWICourseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWICourseManager.h; sourceTree = "<group>"; };
 		816616E8190B04AC00331B6C /* NWICourseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWICourseManager.m; sourceTree = "<group>"; };
 		816616EA190B07D800331B6C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -216,6 +216,8 @@
 				816616ED190B0B2700331B6C /* Course.m */,
 				816616CF190B044D00331B6C /* EventGroup.h */,
 				816616D0190B044D00331B6C /* EventGroup.m */,
+				810A1508190C239F0094BC61 /* Event.h */,
+				810A1509190C239F0094BC61 /* Event.m */,
 				816616D2190B044E00331B6C /* Section.h */,
 				816616D3190B044E00331B6C /* Section.m */,
 				816616D5190B044E00331B6C /* User.h */,
@@ -226,8 +228,6 @@
 				816616DC190B044E00331B6C /* ServerObject.m */,
 				816616DE190B044E00331B6C /* UserSectionTable.h */,
 				816616DF190B044E00331B6C /* UserSectionTable.m */,
-				816616E4190B044E00331B6C /* Event.h */,
-				816616E5190B044E00331B6C /* Event.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -347,6 +347,7 @@
 				816616D1190B044D00331B6C /* EventGroup.m in Sources */,
 				81EC49C4190BE2F500B370CA /* NWIEventsManager.m in Sources */,
 				816616EE190B0B2700331B6C /* Course.m in Sources */,
+				810A150A190C239F0094BC61 /* Event.m in Sources */,
 				816616D7190B044E00331B6C /* User.m in Sources */,
 				816C9D091907DCD4005D8243 /* NWIAppDelegate.m in Sources */,
 				816616E9190B04AC00331B6C /* NWICourseManager.m in Sources */,
@@ -355,7 +356,6 @@
 				816616DD190B044E00331B6C /* ServerObject.m in Sources */,
 				81A01AB619082A7B003CABBF /* NWIAuthenticationViewController.m in Sources */,
 				816616E0190B044E00331B6C /* UserSectionTable.m in Sources */,
-				816616E6190B044E00331B6C /* Event.m in Sources */,
 				816616D4190B044E00331B6C /* Section.m in Sources */,
 				81A01A6D1907EC07003CABBF /* Model.xcdatamodeld in Sources */,
 			);

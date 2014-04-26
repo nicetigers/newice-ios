@@ -37,6 +37,22 @@
     [self pullCourseByID:courseID makeAsynchronous:NO];
     return [self getCourseByID:courseID]; // DANGER can go into infinite loop if given errorneous course ID
 }
+-(Section *)getSectionByID:(NSInteger)sectionID
+{
+    NSError *error;
+    NSManagedObjectModel *model = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel;
+    NSFetchRequest *fetchRequest = [model fetchRequestFromTemplateWithName:@"SectionByID" substitutionVariables:@{@"SERV_ID":  [NSNumber numberWithInteger:sectionID]}];
+    NSArray *fetched = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        NSLog(@"Error proccessing fetch request for section id %d. Error: %@", sectionID, error.description);
+        return nil;
+    }
+    if (fetched.count > 0) {
+        return fetched.lastObject;
+    } else {
+        return nil;
+    }
+}
 
 -(NSDictionary *)getCourseSectionsMap;
 {

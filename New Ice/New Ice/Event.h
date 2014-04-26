@@ -2,16 +2,17 @@
 //  Event.h
 //  New Ice
 //
-//  Created by Naphat Sanguansin on 4/25/14.
+//  Created by Naphat Sanguansin on 4/26/14.
 //
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "ServerObject.h"
 
 @class EventGroup;
 
-@interface Event : NSManagedObject
+@interface Event : ServerObject
 
 @property (nonatomic, retain) NSString * eventDescription;
 @property (nonatomic, retain) NSDate * eventEnd;

@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@class Course;
+@class Course, Section;
 
 @interface NWICourseManager : NSObject
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 -(Course *)getCourseByID:(NSInteger)courseID;
+-(Section *)getSectionByID:(NSInteger)sectionID;
 -(NSDictionary *)getCourseSectionsMap;
 
 
