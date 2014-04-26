@@ -74,6 +74,8 @@
     </entity>
     <fetchRequest name="CourseByID" entity="Course" predicateString="serverID == $SERV_ID"/>
     <fetchRequest name="Enrollment" entity="UserSectionTable" predicateString="section == $SECTION AND user == $USER"/>
+    <fetchRequest name="EventByID" entity="Event" predicateString="serverID == $SERV_ID"/>
+    <fetchRequest name="EventGroupByID" entity="EventGroup" predicateString="serverID == $SERV_ID"/>
     <fetchRequest name="SectionByID" entity="Section" predicateString="serverID == $SERV_ID"/>
     <fetchRequest name="UserByNetID" entity="User" predicateString="netid == $NET_ID"/>
     <elements>

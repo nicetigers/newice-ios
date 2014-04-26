@@ -11,6 +11,6 @@
 @interface NWIEventsManager : NSObject
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
--(void)pullEventsForCourseID:(NSInteger)courseID;
+-(void)pullEventsForCourseIDs:(NSArray *)courseIDs makeAsynchronous:(BOOL)async;
 
 @end

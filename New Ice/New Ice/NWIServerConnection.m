@@ -156,13 +156,11 @@
 #pragma mark Events
 -(void)getEventsForEnrolledCourses:(User *)user
 {
-    NSMutableSet *courseSet = [NSMutableSet new];
+    NSMutableSet *courseIDSet = [NSMutableSet new];
     for (UserSectionTable *enrollmentObject in user.enrollment) {
-        [courseSet addObject:enrollmentObject.section.course];
+        [courseIDSet addObject:enrollmentObject.section.course.serverID];
     }
-    for (Course *courseObject in courseSet) {
-        [self.eventsManager pullEventsForCourseID:courseObject.serverID.integerValue];
-    }
+    [self.eventsManager pullEventsForCourseIDs:[courseIDSet allObjects] makeAsynchronous:NO];
 }
 
 #pragma mark - getters/setters methods
