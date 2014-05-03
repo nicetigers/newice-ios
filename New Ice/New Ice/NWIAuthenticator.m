@@ -13,7 +13,7 @@
 
 @interface NWIAuthenticator ()
 
-@property (nonatomic, strong) CompletionBlock completion;
+@property (nonatomic, strong) ShownBlock completion;
 
 @end
 
@@ -33,7 +33,7 @@
     return self.netid != nil;
 }
 
--(void)showAuthenticationViewIfNeededWithCompletionHandler:(CompletionBlock)completion
+-(void)showAuthenticationViewIfNeededWithCompletionHandler:(ShownBlock)completion
 {
     if (self.authenticated) {
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8000/verify"]];
@@ -46,7 +46,7 @@
             [self showAuthenticationViewIfNeededWithCompletionHandler:completion];
         } else {
             if (completion) {
-                completion(YES);
+                completion(NO);
             }
         }
         return;

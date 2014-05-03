@@ -15,5 +15,6 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NWICourseManager *courseManager;
 -(void)pullEventsForCourseIDs:(NSArray *)courseIDs makeAsynchronous:(BOOL)async;
+-(void)pullEventsForUser:(NSString *)netid lastConnected:(NSDate **)lastConnected;
 
 @end

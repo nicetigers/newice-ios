@@ -8,7 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class NWIAuthenticator;
+
 @interface NWIServerConnection : NSObject
+
+@property (nonatomic, strong) NWIAuthenticator *authenticator;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 -(void)sync;
 

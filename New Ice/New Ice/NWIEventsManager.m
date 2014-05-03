@@ -50,19 +50,38 @@
         [self processDownloadedEvents:data];
     }
 }
+-(void)pullEventsForUser:(NSString *)netid lastConnected:(NSDate **)lastConnected
+{
+    NSError *error;
+    NSInteger lastSyncedInt = [*lastConnected timeIntervalSince1970];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/get/%d", SERVER_URL, lastSyncedInt]]];
+    NSURLResponse *response;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error) {
+        NSLog(@"Error downloading events. \n Error: %@", error.description);
+        [self pullEventsForUser:netid lastConnected:lastConnected];
+        return;
+    }
+    *lastConnected = [NSDate date];
+    [self processDownloadedEvents:data];
+}
 
 -(void)processDownloadedEvents:(NSData *)data
 {
+    // TODO process hidden events
     NSError *error;
-    NSArray *eventsArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    NSDictionary *parsed = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    NSArray *eventsArray = parsed[@"events"];
     if (error) {
         NSLog(@"Error parsing downloaded events. \n Error: %@", error.description);
         return;
     }
+    NSInteger count = 0;
     for (NSDictionary *eventDict in eventsArray) {
         EventGroup *eventGroupObject = [self getOrCreateEventGroupForEventDict:eventDict];
         Event *eventObject = [self getOrCreateEventForEventDict:eventDict];
         [eventGroupObject addEventsObject:eventObject]; // TODO what if the event is already added to this event group?
+        NSLog(@"processed %d events", ++count);
     }
     [self.managedObjectContext save:&error];
     if (error) {
@@ -89,11 +108,17 @@
         Section *sectionObject = [self.courseManager getSectionByID:[eventDict[@"section_id"] integerValue]];
         [sectionObject addEventGroupsObject:eventGroupObject];
         if ([eventDict.allKeys containsObject:@"recurrence_days"]) {
-            eventGroupObject.recurrenceDays = eventDict[@"recurrence_days"];
+            NSData *jsonRecur = [NSJSONSerialization dataWithJSONObject:eventDict[@"recurrence_days"] options:0 error:&error];
+            if (error)
+            {
+                NSLog(@"error serializing json for recurrence days. error: %@", error.description);
+                return nil;
+            }
+            eventGroupObject.recurrenceDays = [[NSString alloc] initWithData:jsonRecur encoding:NSStringEncodingConversionAllowLossy];
             eventGroupObject.recurrenceInterval = [NSNumber numberWithInteger:[eventDict[@"recurrence_interval"] integerValue]];
             eventGroupObject.endDate = [NSDate dateWithTimeIntervalSince1970:[eventDict[@"recurrence_end"] doubleValue]];
         }
-        [self.managedObjectContext save:&error];
+        //[self.managedObjectContext save:&error];
         if (error) {
             NSLog(@"Error saving new event group. \nError: %@", error.description);
             return nil;
@@ -103,6 +128,7 @@
 }
 -(Event *)getOrCreateEventForEventDict:(NSDictionary *)eventDict
 {
+    BOOL shouldSave = NO;
     NSError *error;
     NSManagedObjectModel *model = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel;
     NSFetchRequest *fetchRequest = [model fetchRequestFromTemplateWithName:@"EventByID" substitutionVariables:@{@"SERV_ID":  eventDict[@"event_id"]}];
@@ -115,11 +141,10 @@
     } else {
         eventObject = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
         eventObject.serverID = [NSNumber numberWithInteger:[eventDict[@"event_id"] integerValue]];
-        [self.managedObjectContext save:&error];
-        if (error) {
-            NSLog(@"Error saving new event. \nError: %@", error.description);
-            return nil;
-        }
+        [eventObject setEventGroup:[self getOrCreateEventGroupForEventDict:eventDict]];
+        
+        shouldSave = YES;
+        
     }
     eventObject.eventStart = [NSDate dateWithTimeIntervalSince1970:[eventDict[@"event_start"] doubleValue]];
     eventObject.eventEnd = [NSDate dateWithTimeIntervalSince1970:[eventDict[@"event_end"] doubleValue]];
@@ -128,6 +153,15 @@
     eventObject.eventDescription = eventDict[@"event_description"];
     eventObject.eventLocation = eventDict[@"event_location"];
     eventObject.eventType = eventDict[@"event_type"];
+    if (shouldSave) {
+        //[self.managedObjectContext save:&error];
+        if (error) {
+            NSLog(@"Error saving new event. \nError: %@", error.description);
+            return nil;
+        }
+    }
+    
+    
     return eventObject;
 }
 @end

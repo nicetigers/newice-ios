@@ -20,4 +20,6 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 
+@property (nonatomic, strong) NSOperationQueue *serverQueue;
+
 @end

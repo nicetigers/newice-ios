@@ -22,16 +22,16 @@
 
 @property (nonatomic, strong) NSDate *lastConnected;
 @property (nonatomic, strong) NSString *netid;
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
 @property (nonatomic, strong) NWICourseManager *courseManager;
 @property (nonatomic, strong) NWIEventsManager *eventsManager;
+@property (nonatomic, assign) BOOL idle;
 
 -(void)pull;
 -(void)pullUserByNetID:(NSString *)netID makeAsynchronous:(BOOL)async;
 -(void)processDownloadedUserData:(NSData *)data;
 -(User *)getUserByNetID:(NSString *)netID;
 -(void)syncEnrollmentForUser:(User *)user;
--(void)getEventsForEnrolledCourses:(User *)user;
 
 
 @end
@@ -40,19 +40,44 @@
 
 #pragma mark - Server code
 
+-(id)init
+{
+    self = [super init];
+    if (self) {
+        self.idle = YES;
+    }
+    return self;
+}
+
 -(void)sync
 {
-    if (!self.netid) {
-        return; // not logged in
+    if (!self.idle) {
+        return;
     }
-    [self pull];
+    self.idle = NO;
+    NSOperationQueue *downloadQueue = [NSOperationQueue currentQueue];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self.authenticator showAuthenticationViewIfNeededWithCompletionHandler:^(BOOL shown) {
+            
+            [downloadQueue addOperationWithBlock:^{
+                [self pull];
+                self.idle = YES;
+            }];
+            
+        }];
+    }];
+    
 }
 
 -(void)pull
 {
+    NSLog(@"syncing");
+    
     User *curUser = [self getUserByNetID:self.netid];
     [self syncEnrollmentForUser:curUser];
-    [self getEventsForEnrolledCourses:curUser];
+    NSDate *lastConnected = self.lastConnected;
+    [self.eventsManager pullEventsForUser:self.netid lastConnected:&lastConnected];
+    self.lastConnected = lastConnected;
 }
 
 #pragma mark Downloading/saving user data
@@ -153,16 +178,6 @@
     }
 }
 
-#pragma mark Events
--(void)getEventsForEnrolledCourses:(User *)user
-{
-    NSMutableSet *courseIDSet = [NSMutableSet new];
-    for (UserSectionTable *enrollmentObject in user.enrollment) {
-        [courseIDSet addObject:enrollmentObject.section.course.serverID];
-    }
-    [self.eventsManager pullEventsForCourseIDs:[courseIDSet allObjects] makeAsynchronous:NO];
-}
-
 #pragma mark - getters/setters methods
 
 -(NSString *)netid
@@ -198,6 +213,11 @@
         NSPersistentStoreCoordinator *coordinator = [delegate persistentStoreCoordinator];
         _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
         _managedObjectContext.persistentStoreCoordinator = coordinator;
+        
+        
+        [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification object:delegate.managedObjectContext queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+            [_managedObjectContext performSelectorOnMainThread:@selector(mergeChangesFromContextDidSaveNotification:) withObject:note waitUntilDone:YES];
+        }];
     }
     return _managedObjectContext;
 }
@@ -214,6 +234,7 @@
     if (!_eventsManager) {
         _eventsManager = [NWIEventsManager new];
         _eventsManager.managedObjectContext = self.managedObjectContext;
+        _eventsManager.courseManager = self.courseManager;
     }
     return _eventsManager;
 }

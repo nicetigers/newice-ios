@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^CompletionBlock)(BOOL completed);
+typedef void(^ShownBlock)(BOOL shown);
 
 @protocol NWIAuthenticationViewControllerDelegate;
 
@@ -17,6 +17,6 @@ typedef void(^CompletionBlock)(BOOL completed);
 @property (nonatomic, strong) NSString *netid;
 
 -(BOOL)authenticated;
--(void)showAuthenticationViewIfNeededWithCompletionHandler:(CompletionBlock)completion;
+-(void)showAuthenticationViewIfNeededWithCompletionHandler:(ShownBlock)completion;
 
 @end

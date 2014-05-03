@@ -21,14 +21,12 @@
 {
     // Override point for customization after application launch.
     [[NSNotificationCenter defaultCenter] addObserverForName:NOTIF_VIEW_VISIBLE object:nil queue:nil usingBlock:^(NSNotification *note) {
-        [self.authenticator showAuthenticationViewIfNeededWithCompletionHandler:^(BOOL completed) {
-            if (completed) {
-                NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-                [queue addOperationWithBlock:^{
-                    [self.serverConnection sync];
-                }];
-            }
+        [self.serverQueue addOperationWithBlock:^{
+            [self.serverConnection sync];
         }];
+    }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification object:self.serverConnection.managedObjectContext queue:self.serverQueue usingBlock:^(NSNotification *note) {
+        [self.managedObjectContext performSelectorOnMainThread:@selector(mergeChangesFromContextDidSaveNotification:) withObject:note waitUntilDone:YES];
     }];
     return YES;
 }
@@ -73,6 +71,7 @@
 {
     if (!_serverConnection) {
         _serverConnection = [NWIServerConnection new];
+        _serverConnection.authenticator = self.authenticator;
     }
     return _serverConnection;
 }
@@ -84,6 +83,13 @@
         _managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator;
     }
     return _managedObjectContext;
+}
+-(NSOperationQueue *)serverQueue
+{
+    if (!_serverQueue) {
+        _serverQueue = [[NSOperationQueue alloc] init];
+    }
+    return _serverQueue;
 }
 // Returns the managed object model for the application.
 // If the model doesn't already exist, it is created from the application's model.
