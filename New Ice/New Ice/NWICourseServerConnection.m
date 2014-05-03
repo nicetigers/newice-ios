@@ -6,11 +6,11 @@
 //
 //
 #import <CoreData/CoreData.h>
-#import "NWICourseManager.h"
+#import "NWICourseServerConnection.h"
 #import "Course.h"
 #import "Section.h"
 
-@interface NWICourseManager ()
+@interface NWICourseServerConnection ()
 
 -(void)pullCourseByID:(NSInteger)courseID makeAsynchronous:(BOOL)async;
 -(void)processDownloadedData:(NSData *)data;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation NWICourseManager
+@implementation NWICourseServerConnection
 
 -(Course *)getCourseByID:(NSInteger)courseID
 {

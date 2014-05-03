@@ -10,7 +10,7 @@
 
 @class Course, Section;
 
-@interface NWICourseManager : NSObject
+@interface NWICourseServerConnection : NSObject
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 

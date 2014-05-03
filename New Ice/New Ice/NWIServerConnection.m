@@ -10,8 +10,8 @@
 #import "NWIAppDelegate.h"
 #import "NWIAuthenticator.h"
 
-#import "NWICourseManager.h"
-#import "NWIEventsManager.h"
+#import "NWICourseServerConnection.h"
+#import "NWIEventsServerConnection.h"
 
 #import "User.h"
 #import "Course.h"
@@ -23,8 +23,8 @@
 @property (nonatomic, strong) NSDate *lastConnected;
 @property (nonatomic, strong) NSString *netid;
 
-@property (nonatomic, strong) NWICourseManager *courseManager;
-@property (nonatomic, strong) NWIEventsManager *eventsManager;
+@property (nonatomic, strong) NWICourseServerConnection *courseServerConnection;
+@property (nonatomic, strong) NWIEventsServerConnection *eventsServerConnection;
 @property (nonatomic, assign) BOOL idle;
 
 -(void)pull;
@@ -76,7 +76,7 @@
     User *curUser = [self getUserByNetID:self.netid];
     [self syncEnrollmentForUser:curUser];
     NSDate *lastConnected = self.lastConnected;
-    [self.eventsManager pullEventsForUser:self.netid lastConnected:&lastConnected];
+    [self.eventsServerConnection pullEventsForUser:self.netid lastConnected:&lastConnected];
     self.lastConnected = lastConnected;
 }
 
@@ -138,9 +138,9 @@
 
 -(void)syncEnrollmentForUser:(User *)user
 {
-    NSDictionary *courseSectionsMap = [self.courseManager getCourseSectionsMap];
+    NSDictionary *courseSectionsMap = [self.courseServerConnection getCourseSectionsMap];
     for (NSString *courseID in courseSectionsMap.allKeys) {
-        Course *courseObject = [self.courseManager getCourseByID:courseID.integerValue];
+        Course *courseObject = [self.courseServerConnection getCourseByID:courseID.integerValue];
         for (NSNumber *sectionID in courseSectionsMap[courseID]) {
             Section *sectionObject = nil;
             for (Section *someSection in courseObject.sections) {
@@ -221,22 +221,22 @@
     }
     return _managedObjectContext;
 }
--(NWICourseManager *)courseManager
+-(NWICourseServerConnection *)courseServerConnection
 {
-    if (!_courseManager) {
-        _courseManager = [NWICourseManager new];
-        _courseManager.managedObjectContext = self.managedObjectContext;
+    if (!_courseServerConnection) {
+        _courseServerConnection = [NWICourseServerConnection new];
+        _courseServerConnection.managedObjectContext = self.managedObjectContext;
     }
-    return _courseManager;
+    return _courseServerConnection;
 }
--(NWIEventsManager *)eventsManager
+-(NWIEventsServerConnection *)eventsServerConnection
 {
-    if (!_eventsManager) {
-        _eventsManager = [NWIEventsManager new];
-        _eventsManager.managedObjectContext = self.managedObjectContext;
-        _eventsManager.courseManager = self.courseManager;
+    if (!_eventsServerConnection) {
+        _eventsServerConnection = [NWIEventsServerConnection new];
+        _eventsServerConnection.managedObjectContext = self.managedObjectContext;
+        _eventsServerConnection.courseServerConnection = self.courseServerConnection;
     }
-    return _eventsManager;
+    return _eventsServerConnection;
 }
 
 @end

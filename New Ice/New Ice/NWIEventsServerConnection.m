@@ -6,21 +6,21 @@
 //
 //
 #import <CoreData/CoreData.h>
-#import "NWIEventsManager.h"
-#import "NWICourseManager.h"
+#import "NWIEventsServerConnection.h"
+#import "NWICourseServerConnection.h"
 
 #import "EventGroup.h"
 #import "Event.h"
 #import "Section.h"
 
 
-@interface NWIEventsManager ()
+@interface NWIEventsServerConnection ()
 
 -(void)processDownloadedEvents:(NSData *)data;
 
 @end
 
-@implementation NWIEventsManager
+@implementation NWIEventsServerConnection
 
 -(void)pullEventsForCourseIDs:(NSArray *)courseIDs makeAsynchronous:(BOOL)async
 {
@@ -105,7 +105,7 @@
         eventGroupObject.startDate = [NSDate dateWithTimeIntervalSince1970:[eventDict[@"event_start"] doubleValue]];
         eventGroupObject.modifiedTime = [NSDate dateWithTimeIntervalSince1970:[eventDict[@"modified_time"] doubleValue]];
         eventGroupObject.serverID = [NSNumber numberWithInteger:[eventDict[@"event_group_id"] integerValue]];
-        Section *sectionObject = [self.courseManager getSectionByID:[eventDict[@"section_id"] integerValue]];
+        Section *sectionObject = [self.courseServerConnection getSectionByID:[eventDict[@"section_id"] integerValue]];
         [sectionObject addEventGroupsObject:eventGroupObject];
         if ([eventDict.allKeys containsObject:@"recurrence_days"]) {
             NSData *jsonRecur = [NSJSONSerialization dataWithJSONObject:eventDict[@"recurrence_days"] options:0 error:&error];

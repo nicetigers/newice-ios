@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class NWICourseManager;
+@class NWICourseServerConnection;
 
-@interface NWIEventsManager : NSObject
+@interface NWIEventsServerConnection : NSObject
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, strong) NWICourseManager *courseManager;
+@property (nonatomic, strong) NWICourseServerConnection *courseServerConnection;
 -(void)pullEventsForCourseIDs:(NSArray *)courseIDs makeAsynchronous:(BOOL)async;
 -(void)pullEventsForUser:(NSString *)netid lastConnected:(NSDate **)lastConnected;
 
