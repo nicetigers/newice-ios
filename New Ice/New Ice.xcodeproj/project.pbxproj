@@ -26,7 +26,6 @@
 		816C9D091907DCD4005D8243 /* NWIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 816C9D081907DCD4005D8243 /* NWIAppDelegate.m */; };
 		816C9D0C1907DCD4005D8243 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 816C9D0A1907DCD4005D8243 /* Main_iPhone.storyboard */; };
 		816C9D0F1907DCD4005D8243 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 816C9D0D1907DCD4005D8243 /* Main_iPad.storyboard */; };
-		816C9D121907DCD4005D8243 /* NWIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 816C9D111907DCD4005D8243 /* NWIViewController.m */; };
 		816C9D141907DCD4005D8243 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 816C9D131907DCD4005D8243 /* Images.xcassets */; };
 		816C9D1B1907DCD4005D8243 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816C9D1A1907DCD4005D8243 /* XCTest.framework */; };
 		816C9D1C1907DCD4005D8243 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816C9CF81907DCD4005D8243 /* Foundation.framework */; };
@@ -37,6 +36,9 @@
 		81A01AB319082734003CABBF /* NWIAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01AB219082734003CABBF /* NWIAuthenticator.m */; };
 		81A01AB619082A7B003CABBF /* NWIAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01AB519082A7B003CABBF /* NWIAuthenticationViewController.m */; };
 		81EC49C4190BE2F500B370CA /* NWIEventsServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EC49C3190BE2F500B370CA /* NWIEventsServerConnection.m */; };
+		81FFCAF719154F5F006FD552 /* UIViewController+NWIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FFCAF619154F5F006FD552 /* UIViewController+NWIViewController.m */; };
+		81FFCAFA19154FA8006FD552 /* NWIAgendaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FFCAF919154FA8006FD552 /* NWIAgendaViewController.m */; };
+		81FFCAFC19155486006FD552 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FFCAFB19155486006FD552 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,8 +85,6 @@
 		816C9D081907DCD4005D8243 /* NWIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWIAppDelegate.m; sourceTree = "<group>"; };
 		816C9D0B1907DCD4005D8243 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		816C9D0E1907DCD4005D8243 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		816C9D101907DCD4005D8243 /* NWIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWIViewController.h; sourceTree = "<group>"; };
-		816C9D111907DCD4005D8243 /* NWIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWIViewController.m; sourceTree = "<group>"; };
 		816C9D131907DCD4005D8243 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		816C9D191907DCD4005D8243 /* New IceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "New IceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		816C9D1A1907DCD4005D8243 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -98,6 +98,11 @@
 		81A01AB519082A7B003CABBF /* NWIAuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIAuthenticationViewController.m; sourceTree = "<group>"; };
 		81EC49C2190BE2F500B370CA /* NWIEventsServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIEventsServerConnection.h; sourceTree = "<group>"; };
 		81EC49C3190BE2F500B370CA /* NWIEventsServerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIEventsServerConnection.m; sourceTree = "<group>"; };
+		81FFCAF519154F5F006FD552 /* UIViewController+NWIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NWIViewController.h"; sourceTree = "<group>"; };
+		81FFCAF619154F5F006FD552 /* UIViewController+NWIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NWIViewController.m"; sourceTree = "<group>"; };
+		81FFCAF819154FA8006FD552 /* NWIAgendaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIAgendaViewController.h; sourceTree = "<group>"; };
+		81FFCAF919154FA8006FD552 /* NWIAgendaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIAgendaViewController.m; sourceTree = "<group>"; };
+		81FFCAFB19155486006FD552 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81FFCAFC19155486006FD552 /* QuartzCore.framework in Frameworks */,
 				816616EB190B07D800331B6C /* CoreData.framework in Frameworks */,
 				816C9CFB1907DCD4005D8243 /* CoreGraphics.framework in Frameworks */,
 				816C9CFD1907DCD4005D8243 /* UIKit.framework in Frameworks */,
@@ -147,6 +153,7 @@
 		816C9CF71907DCD4005D8243 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				81FFCAFB19155486006FD552 /* QuartzCore.framework */,
 				816616EA190B07D800331B6C /* CoreData.framework */,
 				816C9CF81907DCD4005D8243 /* Foundation.framework */,
 				816C9CFA1907DCD4005D8243 /* CoreGraphics.framework */,
@@ -164,8 +171,10 @@
 				81A01A6E1907F65D003CABBF /* models */,
 				816C9D0A1907DCD4005D8243 /* Main_iPhone.storyboard */,
 				816C9D0D1907DCD4005D8243 /* Main_iPad.storyboard */,
-				816C9D101907DCD4005D8243 /* NWIViewController.h */,
-				816C9D111907DCD4005D8243 /* NWIViewController.m */,
+				81FFCAF519154F5F006FD552 /* UIViewController+NWIViewController.h */,
+				81FFCAF619154F5F006FD552 /* UIViewController+NWIViewController.m */,
+				81FFCAF819154FA8006FD552 /* NWIAgendaViewController.h */,
+				81FFCAF919154FA8006FD552 /* NWIAgendaViewController.m */,
 				816C9D131907DCD4005D8243 /* Images.xcassets */,
 				816C9CFF1907DCD4005D8243 /* Supporting Files */,
 				81A01AB719082A83003CABBF /* Authentication */,
@@ -342,9 +351,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				816C9D051907DCD4005D8243 /* main.m in Sources */,
+				81FFCAF719154F5F006FD552 /* UIViewController+NWIViewController.m in Sources */,
 				816616DA190B044E00331B6C /* Semester.m in Sources */,
 				816616B6190AE82B00331B6C /* NWIServerConnection.m in Sources */,
 				816616D1190B044D00331B6C /* EventGroup.m in Sources */,
+				81FFCAFA19154FA8006FD552 /* NWIAgendaViewController.m in Sources */,
 				81EC49C4190BE2F500B370CA /* NWIEventsServerConnection.m in Sources */,
 				816616EE190B0B2700331B6C /* Course.m in Sources */,
 				810A150A190C239F0094BC61 /* Event.m in Sources */,
@@ -352,7 +363,6 @@
 				816C9D091907DCD4005D8243 /* NWIAppDelegate.m in Sources */,
 				816616E9190B04AC00331B6C /* NWICourseServerConnection.m in Sources */,
 				81A01AB319082734003CABBF /* NWIAuthenticator.m in Sources */,
-				816C9D121907DCD4005D8243 /* NWIViewController.m in Sources */,
 				816616DD190B044E00331B6C /* ServerObject.m in Sources */,
 				81A01AB619082A7B003CABBF /* NWIAuthenticationViewController.m in Sources */,
 				816616E0190B044E00331B6C /* UserSectionTable.m in Sources */,
