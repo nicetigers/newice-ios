@@ -55,18 +55,10 @@
         return;
     }
     self.idle = NO;
-    NSOperationQueue *downloadQueue = [NSOperationQueue currentQueue];
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        [self.authenticator showAuthenticationViewIfNeededWithCompletionHandler:^(BOOL shown) {
-            
-            [downloadQueue addOperationWithBlock:^{
-                [self pull];
-                self.idle = YES;
-            }];
-            
-        }];
+    [self.authenticator showAuthenticationViewIfNeededWithCompletionHandler:^(BOOL shown) {
+        [self pull];
+        self.idle = YES;
     }];
-    
 }
 
 -(void)pull

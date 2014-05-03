@@ -14,6 +14,7 @@
 @interface NWIAuthenticator ()
 
 @property (nonatomic, strong) ShownBlock completion;
+@property (nonatomic, weak) NSOperationQueue *authenticationQueue;
 
 @end
 
@@ -55,18 +56,25 @@
     NWIAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     NWIAuthenticationViewController *authVC = [delegate.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"authentication"];
     authVC.authDelegate = self;
-    [delegate.window.rootViewController presentViewController:authVC animated:YES completion:nil];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [delegate.window.rootViewController presentViewController:authVC animated:YES completion:nil];
+    }];
     self.completion = completion;
+    self.authenticationQueue = [NSOperationQueue currentQueue];
+    NSLog(@"current queue is %@", self.authenticationQueue);
 }
 
 -(BOOL)authenticationViewController:(NWIAuthenticationViewController *)authVC didLoginWithUserName:(NSString *)userName
 {
+    NSLog(@"execution queue is %@", [NSOperationQueue currentQueue]);
     self.netid = userName;
     [[NSUserDefaults standardUserDefaults] setObject:userName forKey:@"netid"];
-    if (self.completion) {
-        self.completion(YES);
-        self.completion = nil;
-    }
+    [self.authenticationQueue addOperationWithBlock:^{
+        if (self.completion) {
+            self.completion(YES);
+            self.completion = nil;
+        }
+    }];
     return YES;
 }
 

@@ -10,12 +10,17 @@
 #import "NWIAgendaViewController.h"
 #import "UIViewController+NWIViewController.h"
 #import "NWIEventsManager.h"
+#import "Event.h"
+#import "EventGroup.h"
+#import "Section.h"
+#import "Course.h"
 
 #define AGENDA_CELL_IDENTIFIER @"agenda reuse identifier"
 
 @interface NWIAgendaViewController ()
 
 @property (nonatomic, strong) NWIEventsManager *eventsManager;
+@property (nonatomic, strong) NSArray *eventObjects;
 
 @end
 
@@ -34,6 +39,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.eventObjects = [self.eventsManager getFutureEvents];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,7 +52,7 @@
 #pragma mark DataSource
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return self.eventObjects.count;
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -57,6 +63,24 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:AGENDA_CELL_IDENTIFIER forIndexPath:indexPath];
     cell.layer.borderColor = [UIColor lightGrayColor].CGColor;
     cell.layer.borderWidth = 0.5;
+    
+    Event *eventObject = self.eventObjects[indexPath.row];
+    
+    UILabel *titleLabel = (UILabel *) [cell viewWithTag:2];
+    titleLabel.text = eventObject.eventTitle;
+    
+    UILabel *sectionLabel = (UILabel *) [cell viewWithTag:3];
+    sectionLabel.text = [NSString stringWithFormat:@"%@ - %@", eventObject.eventGroup.section.course.courseListings, eventObject.eventGroup.section.name];
+    
+    UILabel *dateLabel = (UILabel *) [cell viewWithTag:4];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDoesRelativeDateFormatting:YES];
+    [dateFormatter setLocale:[NSLocale currentLocale]];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    dateLabel.text = [dateFormatter stringFromDate:eventObject.eventStart];
+    
+    
     return cell;
 }
 

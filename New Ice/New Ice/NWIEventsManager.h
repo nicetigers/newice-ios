@@ -10,4 +10,6 @@
 
 @interface NWIEventsManager : NSObject
 
+-(NSArray *)getFutureEvents;
+
 @end
