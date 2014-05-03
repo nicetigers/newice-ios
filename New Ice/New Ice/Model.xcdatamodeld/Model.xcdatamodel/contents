@@ -76,6 +76,7 @@
     <fetchRequest name="Enrollment" entity="UserSectionTable" predicateString="section == $SECTION AND user == $USER"/>
     <fetchRequest name="EventByID" entity="Event" predicateString="serverID == $SERV_ID"/>
     <fetchRequest name="EventGroupByID" entity="EventGroup" predicateString="serverID == $SERV_ID"/>
+    <fetchRequest name="EventsInRange" entity="Event" predicateString="eventStart >= $START_DATE AND eventEnd &lt;= $END_DATE"/>
     <fetchRequest name="SectionByID" entity="Section" predicateString="serverID == $SERV_ID"/>
     <fetchRequest name="UserByNetID" entity="User" predicateString="netid == $NET_ID"/>
     <elements>

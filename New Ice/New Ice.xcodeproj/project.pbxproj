@@ -39,6 +39,7 @@
 		81FFCAF719154F5F006FD552 /* UIViewController+NWIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FFCAF619154F5F006FD552 /* UIViewController+NWIViewController.m */; };
 		81FFCAFA19154FA8006FD552 /* NWIAgendaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FFCAF919154FA8006FD552 /* NWIAgendaViewController.m */; };
 		81FFCAFC19155486006FD552 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FFCAFB19155486006FD552 /* QuartzCore.framework */; };
+		81FFCAFF19155AD7006FD552 /* NWIEventsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FFCAFE19155AD7006FD552 /* NWIEventsManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,8 @@
 		81FFCAF819154FA8006FD552 /* NWIAgendaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIAgendaViewController.h; sourceTree = "<group>"; };
 		81FFCAF919154FA8006FD552 /* NWIAgendaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIAgendaViewController.m; sourceTree = "<group>"; };
 		81FFCAFB19155486006FD552 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		81FFCAFD19155AD7006FD552 /* NWIEventsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIEventsManager.h; sourceTree = "<group>"; };
+		81FFCAFE19155AD7006FD552 /* NWIEventsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIEventsManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +178,8 @@
 				81FFCAF619154F5F006FD552 /* UIViewController+NWIViewController.m */,
 				81FFCAF819154FA8006FD552 /* NWIAgendaViewController.h */,
 				81FFCAF919154FA8006FD552 /* NWIAgendaViewController.m */,
+				81FFCAFD19155AD7006FD552 /* NWIEventsManager.h */,
+				81FFCAFE19155AD7006FD552 /* NWIEventsManager.m */,
 				816C9D131907DCD4005D8243 /* Images.xcassets */,
 				816C9CFF1907DCD4005D8243 /* Supporting Files */,
 				81A01AB719082A83003CABBF /* Authentication */,
@@ -357,6 +362,7 @@
 				816616D1190B044D00331B6C /* EventGroup.m in Sources */,
 				81FFCAFA19154FA8006FD552 /* NWIAgendaViewController.m in Sources */,
 				81EC49C4190BE2F500B370CA /* NWIEventsServerConnection.m in Sources */,
+				81FFCAFF19155AD7006FD552 /* NWIEventsManager.m in Sources */,
 				816616EE190B0B2700331B6C /* Course.m in Sources */,
 				810A150A190C239F0094BC61 /* Event.m in Sources */,
 				816616D7190B044E00331B6C /* User.m in Sources */,

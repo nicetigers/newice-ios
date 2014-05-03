@@ -9,10 +9,13 @@
 #import <QuartzCore/QuartzCore.h>
 #import "NWIAgendaViewController.h"
 #import "UIViewController+NWIViewController.h"
+#import "NWIEventsManager.h"
 
 #define AGENDA_CELL_IDENTIFIER @"agenda reuse identifier"
 
 @interface NWIAgendaViewController ()
+
+@property (nonatomic, strong) NWIEventsManager *eventsManager;
 
 @end
 
@@ -55,6 +58,17 @@
     cell.layer.borderColor = [UIColor lightGrayColor].CGColor;
     cell.layer.borderWidth = 0.5;
     return cell;
+}
+
+#pragma mark - Getters/Setters
+
+-(NWIEventsManager *)eventsManager
+{
+    if (!_eventsManager)
+    {
+        _eventsManager = [NWIEventsManager new];
+    }
+    return _eventsManager;
 }
 
 /*
