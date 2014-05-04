@@ -27,6 +27,7 @@
     }];
     [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification object:self.serverConnection.managedObjectContext queue:self.serverQueue usingBlock:^(NSNotification *note) {
         [self.managedObjectContext performSelectorOnMainThread:@selector(mergeChangesFromContextDidSaveNotification:) withObject:note waitUntilDone:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_DATA_UPDATE object:nil];
     }];
     return YES;
 }

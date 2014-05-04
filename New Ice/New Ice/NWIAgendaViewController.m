@@ -9,11 +9,17 @@
 #import <QuartzCore/QuartzCore.h>
 #import "NWIAgendaViewController.h"
 #import "UIViewController+NWIViewController.h"
+
+#import "NWIAppDelegate.h"
 #import "NWIEventsManager.h"
+#import "NWIAuthenticator.h"
+
 #import "Event.h"
 #import "EventGroup.h"
 #import "Section.h"
 #import "Course.h"
+#import "UserSectionTable.h"
+#import "User.h"
 
 #define AGENDA_CELL_IDENTIFIER @"agenda reuse identifier"
 
@@ -21,6 +27,7 @@
 
 @property (nonatomic, strong) NWIEventsManager *eventsManager;
 @property (nonatomic, strong) NSArray *eventObjects;
+@property (nonatomic, weak) NWIAuthenticator *authenticator;
 
 @end
 
@@ -40,6 +47,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.eventObjects = [self.eventsManager getFutureEvents];
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIF_DATA_UPDATE object:nil queue:nil usingBlock:^(NSNotification *note) {
+        self.eventObjects = [self.eventsManager getFutureEvents];
+        [self.collectionView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,6 +91,19 @@
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     dateLabel.text = [dateFormatter stringFromDate:eventObject.eventStart];
     
+    UIView *sectionTag = (UIView *) [cell viewWithTag:1];
+    unsigned int hexColor = 0;
+    for (UserSectionTable *enrollment in eventObject.eventGroup.section.enrollment) {
+        if ([enrollment.user.netid isEqualToString:self.authenticator.netid]) {
+            hexColor = [enrollment.color unsignedIntValue];
+        }
+    }
+    UIColor *color = [UIColor colorWithRed:((CGFloat) ((hexColor & 0xFF0000) >> 16))/255
+                                     green:((CGFloat) ((hexColor & 0x00FF00) >> 8))/255
+                                      blue:((CGFloat) (hexColor & 0x0000FF))/255
+                                     alpha:1.0];
+    sectionTag.backgroundColor = color;
+    
     
     return cell;
 }
@@ -93,6 +117,15 @@
         _eventsManager = [NWIEventsManager new];
     }
     return _eventsManager;
+}
+
+-(NWIAuthenticator *)authenticator
+{
+    if (!_authenticator) {
+        NWIAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        _authenticator = delegate.authenticator;
+    }
+    return _authenticator;
 }
 
 /*

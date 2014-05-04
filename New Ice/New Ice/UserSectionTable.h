@@ -2,7 +2,7 @@
 //  UserSectionTable.h
 //  New Ice
 //
-//  Created by Naphat Sanguansin on 4/25/14.
+//  Created by Naphat Sanguansin on 5/4/14.
 //
 //
 
@@ -14,6 +14,7 @@
 @interface UserSectionTable : NSManagedObject
 
 @property (nonatomic, retain) NSDate * addDate;
+@property (nonatomic, retain) NSNumber * color;
 @property (nonatomic, retain) Section *section;
 @property (nonatomic, retain) User *user;
 

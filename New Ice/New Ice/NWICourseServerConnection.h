@@ -17,6 +17,6 @@
 -(Course *)getCourseByID:(NSInteger)courseID;
 -(Section *)getSectionByID:(NSInteger)sectionID;
 -(NSDictionary *)getCourseSectionsMap;
-
+-(NSDictionary *)getSectionColors;
 
 @end

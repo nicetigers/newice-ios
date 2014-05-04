@@ -131,6 +131,7 @@
 -(void)syncEnrollmentForUser:(User *)user
 {
     NSDictionary *courseSectionsMap = [self.courseServerConnection getCourseSectionsMap];
+    NSDictionary *sectionsColor = [self.courseServerConnection getSectionColors];
     for (NSString *courseID in courseSectionsMap.allKeys) {
         Course *courseObject = [self.courseServerConnection getCourseByID:courseID.integerValue];
         for (NSNumber *sectionID in courseSectionsMap[courseID]) {
@@ -141,12 +142,27 @@
                 }
             }
             if (sectionObject) {
-                [self enrollUser:user inSection:sectionObject];
+                NSString *hexString = sectionsColor[sectionID.stringValue][@"color"];
+                NSNumber *colorHex = nil;
+                if (hexString) {
+                    unsigned int hexInt = 0;
+                    // Create scanner
+                    NSScanner *scanner = [NSScanner scannerWithString:hexString];
+                    
+                    // Tell scanner to skip the # character
+                    [scanner setCharactersToBeSkipped:[NSCharacterSet characterSetWithCharactersInString:@"#"]];
+                    
+                    // Scan hex value
+                    [scanner scanHexInt:&hexInt];
+                    
+                    colorHex = [NSNumber numberWithUnsignedInt:hexInt];
+                }
+                [self enrollUser:user inSection:sectionObject withColor:colorHex];
             }
         }
     }
 }
--(void)enrollUser:(User *)user inSection:(Section *)sectionObject
+-(void)enrollUser:(User *)user inSection:(Section *)sectionObject withColor:(NSNumber *)colorHex
 {
     NSError *error;
     NSManagedObjectModel *model = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel;
@@ -162,6 +178,16 @@
         enrollmentObject.user = user;
         enrollmentObject.section = sectionObject;
         enrollmentObject.addDate = [NSDate date];
+        enrollmentObject.color = colorHex;
+        [self.managedObjectContext save:&error];
+        if (error) {
+            NSLog(@"Error saving enrollment for user %@ and section %@. \n Error: %@", user.netid, sectionObject.name, error.description);
+            return;
+        }
+    } else{
+        // TODO update section color
+        UserSectionTable *enrollmentObject = fetched.lastObject;
+        enrollmentObject.color = colorHex;
         [self.managedObjectContext save:&error];
         if (error) {
             NSLog(@"Error saving enrollment for user %@ and section %@. \n Error: %@", user.netid, sectionObject.name, error.description);

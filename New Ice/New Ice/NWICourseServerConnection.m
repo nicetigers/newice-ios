@@ -61,12 +61,30 @@
     NSError *error;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     if (error) {
-        NSLog(@"Error downloading course sections map. \n Error: %@", error.description);
+        NSLog(@"Error downloading course sections map. \nError: %@", error.description);
         return nil;
     }
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
-        NSLog(@"Error parsing json. \n Error: %@", error.description);
+        NSLog(@"Error parsing json. \nError: %@", error.description);
+    }
+    return dict;
+}
+
+-(NSDictionary *)getSectionColors
+{
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/get/section-colors", SERVER_URL]]];
+    NSURLResponse *response;
+    NSError *error;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error) {
+        NSLog(@"Error downloading section colors. \nError: %@", error.description);
+        return nil;
+    }
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
+        NSLog(@"Error parsing json. \nError: %@", error.description);
+        return nil;
     }
     return dict;
 }

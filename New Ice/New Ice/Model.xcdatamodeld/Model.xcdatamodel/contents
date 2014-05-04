@@ -69,6 +69,7 @@
     </entity>
     <entity name="UserSectionTable" representedClassName="UserSectionTable" syncable="YES">
         <attribute name="addDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="color" optional="YES" attributeType="Integer 32" minValueString="0" maxValueString="16777215" defaultValueString="14024752" syncable="YES"/>
         <relationship name="section" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Section" inverseName="enrollment" inverseEntity="Section" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="enrollment" inverseEntity="User" syncable="YES"/>
     </entity>
@@ -88,6 +89,6 @@
         <element name="Semester" positionX="-5609" positionY="-3532" width="128" height="103"/>
         <element name="ServerObject" positionX="-5364" positionY="-3852" width="128" height="58"/>
         <element name="User" positionX="-5697" positionY="-3339" width="128" height="103"/>
-        <element name="UserSectionTable" positionX="-5456" positionY="-3058" width="128" height="88"/>
+        <element name="UserSectionTable" positionX="-5456" positionY="-3058" width="128" height="105"/>
     </elements>
 </model>
