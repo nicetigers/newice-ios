@@ -9,6 +9,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "NWIAgendaViewController.h"
 #import "UIViewController+NWIViewController.h"
+#import "UIColor+NWIHex.h"
+#import "NWIEventTableViewController.h"
 
 #import "NWIAppDelegate.h"
 #import "NWIEventsManager.h"
@@ -51,6 +53,10 @@
         self.eventObjects = [self.eventsManager getFutureEvents];
         [self.collectionView reloadData];
     }];
+    self.bbiSettings.title = @"\u2699";
+    UIFont *f1 = [UIFont systemFontOfSize:24];
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:f1, NSFontAttributeName, nil];
+    [self.bbiSettings setTitleTextAttributes:dict forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,13 +81,13 @@
     cell.layer.borderColor = [UIColor lightGrayColor].CGColor;
     cell.layer.borderWidth = 0.5;
     
-    Event *eventObject = self.eventObjects[indexPath.row];
+    Event *eventObject = self.eventObjects[indexPath.item];
     
     UILabel *titleLabel = (UILabel *) [cell viewWithTag:2];
     titleLabel.text = eventObject.eventTitle;
     
     UILabel *sectionLabel = (UILabel *) [cell viewWithTag:3];
-    sectionLabel.text = [NSString stringWithFormat:@"%@ - %@", eventObject.eventGroup.section.course.courseListings, eventObject.eventGroup.section.name];
+    sectionLabel.text = [eventObject.eventGroup.section formattedName];
     
     UILabel *dateLabel = (UILabel *) [cell viewWithTag:4];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -98,10 +104,7 @@
             hexColor = [enrollment.color unsignedIntValue];
         }
     }
-    UIColor *color = [UIColor colorWithRed:((CGFloat) ((hexColor & 0xFF0000) >> 16))/255
-                                     green:((CGFloat) ((hexColor & 0x00FF00) >> 8))/255
-                                      blue:((CGFloat) (hexColor & 0x0000FF))/255
-                                     alpha:1.0];
+    UIColor *color = [UIColor colorFromHexInt:hexColor];
     sectionTag.backgroundColor = color;
     
     
@@ -128,7 +131,6 @@
     return _authenticator;
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -136,7 +138,21 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSIndexPath *selected = [self.collectionView indexPathsForSelectedItems].lastObject;
+    Event *event = self.eventObjects[selected.item];
+    unsigned int hexColor = 0;
+    for (UserSectionTable *enrollment in event.eventGroup.section.enrollment) {
+        if ([enrollment.user.netid isEqualToString:self.authenticator.netid]) {
+            hexColor = [enrollment.color unsignedIntValue];
+        }
+    }
+    UIColor *color = [UIColor colorFromHexInt:hexColor];
+    
+    
+    NWIEventTableViewController *eventsVC = [segue destinationViewController];
+    eventsVC.selectedEvent = event;
+    eventsVC.color = color;
+    eventsVC.eventsManager = self.eventsManager;
 }
-*/
 
 @end

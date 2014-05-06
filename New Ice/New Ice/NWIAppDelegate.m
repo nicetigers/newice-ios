@@ -8,6 +8,8 @@
 
 #import <CoreData/CoreData.h>
 
+#import "UIColor+NWIHex.h"
+
 #import "NWIAppDelegate.h"
 #import "NWIServerConnection.h"
 #import "NWIAuthenticator.h"
@@ -29,6 +31,7 @@
         [self.managedObjectContext performSelectorOnMainThread:@selector(mergeChangesFromContextDidSaveNotification:) withObject:note waitUntilDone:YES];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_DATA_UPDATE object:nil];
     }];
+    [self.window setTintColor:[UIColor colorFromHexString:PRIMARY_COLOR_WHITE_THEME]];
     return YES;
 }
 							

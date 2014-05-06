@@ -11,5 +11,6 @@
 @interface NWIEventsManager : NSObject
 
 -(NSArray *)getFutureEvents;
+-(NSString *)eventTypeForKey:(NSString *)key;
 
 @end

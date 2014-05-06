@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		810A150A190C239F0094BC61 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 810A1509190C239F0094BC61 /* Event.m */; };
+		81145E0719170CE800231C0F /* NWIEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81145E0619170CE800231C0F /* NWIEventTableViewController.m */; };
 		813D59951916CABC00C5B491 /* UserSectionTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 813D59941916CABC00C5B491 /* UserSectionTable.m */; };
 		816616B6190AE82B00331B6C /* NWIServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616B5190AE82B00331B6C /* NWIServerConnection.m */; };
 		816616D1190B044D00331B6C /* EventGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616D0190B044D00331B6C /* EventGroup.m */; };
@@ -36,6 +37,8 @@
 		81A01AB319082734003CABBF /* NWIAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01AB219082734003CABBF /* NWIAuthenticator.m */; };
 		81A01AB619082A7B003CABBF /* NWIAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01AB519082A7B003CABBF /* NWIAuthenticationViewController.m */; };
 		81EC49C4190BE2F500B370CA /* NWIEventsServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EC49C3190BE2F500B370CA /* NWIEventsServerConnection.m */; };
+		81FBD3E1191919FE0095C32C /* UIColor+NWIHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FBD3E0191919FE0095C32C /* UIColor+NWIHex.m */; };
+		81FBD3E4191921CF0095C32C /* NWIThemedNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FBD3E3191921CF0095C32C /* NWIThemedNavigationController.m */; };
 		81FFCAF719154F5F006FD552 /* UIViewController+NWIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FFCAF619154F5F006FD552 /* UIViewController+NWIViewController.m */; };
 		81FFCAFA19154FA8006FD552 /* NWIAgendaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FFCAF919154FA8006FD552 /* NWIAgendaViewController.m */; };
 		81FFCAFC19155486006FD552 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FFCAFB19155486006FD552 /* QuartzCore.framework */; };
@@ -55,6 +58,8 @@
 /* Begin PBXFileReference section */
 		810A1508190C239F0094BC61 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		810A1509190C239F0094BC61 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		81145E0519170CE800231C0F /* NWIEventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIEventTableViewController.h; sourceTree = "<group>"; };
+		81145E0619170CE800231C0F /* NWIEventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIEventTableViewController.m; sourceTree = "<group>"; };
 		813D59931916CABC00C5B491 /* UserSectionTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSectionTable.h; sourceTree = "<group>"; };
 		813D59941916CABC00C5B491 /* UserSectionTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSectionTable.m; sourceTree = "<group>"; };
 		816616B4190AE82B00331B6C /* NWIServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIServerConnection.h; sourceTree = "<group>"; };
@@ -99,6 +104,10 @@
 		81A01AB519082A7B003CABBF /* NWIAuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIAuthenticationViewController.m; sourceTree = "<group>"; };
 		81EC49C2190BE2F500B370CA /* NWIEventsServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIEventsServerConnection.h; sourceTree = "<group>"; };
 		81EC49C3190BE2F500B370CA /* NWIEventsServerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIEventsServerConnection.m; sourceTree = "<group>"; };
+		81FBD3DF191919FE0095C32C /* UIColor+NWIHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+NWIHex.h"; sourceTree = "<group>"; };
+		81FBD3E0191919FE0095C32C /* UIColor+NWIHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NWIHex.m"; sourceTree = "<group>"; };
+		81FBD3E2191921CF0095C32C /* NWIThemedNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIThemedNavigationController.h; sourceTree = "<group>"; };
+		81FBD3E3191921CF0095C32C /* NWIThemedNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIThemedNavigationController.m; sourceTree = "<group>"; };
 		81FFCAF519154F5F006FD552 /* UIViewController+NWIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NWIViewController.h"; sourceTree = "<group>"; };
 		81FFCAF619154F5F006FD552 /* UIViewController+NWIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NWIViewController.m"; sourceTree = "<group>"; };
 		81FFCAF819154FA8006FD552 /* NWIAgendaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIAgendaViewController.h; sourceTree = "<group>"; };
@@ -174,10 +183,16 @@
 				81A01A6E1907F65D003CABBF /* models */,
 				816C9D0A1907DCD4005D8243 /* Main_iPhone.storyboard */,
 				816C9D0D1907DCD4005D8243 /* Main_iPad.storyboard */,
+				81FBD3E2191921CF0095C32C /* NWIThemedNavigationController.h */,
+				81FBD3E3191921CF0095C32C /* NWIThemedNavigationController.m */,
 				81FFCAF519154F5F006FD552 /* UIViewController+NWIViewController.h */,
 				81FFCAF619154F5F006FD552 /* UIViewController+NWIViewController.m */,
+				81FBD3DF191919FE0095C32C /* UIColor+NWIHex.h */,
+				81FBD3E0191919FE0095C32C /* UIColor+NWIHex.m */,
 				81FFCAF819154FA8006FD552 /* NWIAgendaViewController.h */,
 				81FFCAF919154FA8006FD552 /* NWIAgendaViewController.m */,
+				81145E0519170CE800231C0F /* NWIEventTableViewController.h */,
+				81145E0619170CE800231C0F /* NWIEventTableViewController.m */,
 				81FFCAFD19155AD7006FD552 /* NWIEventsManager.h */,
 				81FFCAFE19155AD7006FD552 /* NWIEventsManager.m */,
 				816C9D131907DCD4005D8243 /* Images.xcassets */,
@@ -356,13 +371,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				816C9D051907DCD4005D8243 /* main.m in Sources */,
+				81FBD3E1191919FE0095C32C /* UIColor+NWIHex.m in Sources */,
 				81FFCAF719154F5F006FD552 /* UIViewController+NWIViewController.m in Sources */,
 				816616DA190B044E00331B6C /* Semester.m in Sources */,
 				816616B6190AE82B00331B6C /* NWIServerConnection.m in Sources */,
 				816616D1190B044D00331B6C /* EventGroup.m in Sources */,
 				81FFCAFA19154FA8006FD552 /* NWIAgendaViewController.m in Sources */,
+				81FBD3E4191921CF0095C32C /* NWIThemedNavigationController.m in Sources */,
 				81EC49C4190BE2F500B370CA /* NWIEventsServerConnection.m in Sources */,
 				81FFCAFF19155AD7006FD552 /* NWIEventsManager.m in Sources */,
+				81145E0719170CE800231C0F /* NWIEventTableViewController.m in Sources */,
 				813D59951916CABC00C5B491 /* UserSectionTable.m in Sources */,
 				816616EE190B0B2700331B6C /* Course.m in Sources */,
 				810A150A190C239F0094BC61 /* Event.m in Sources */,

@@ -58,6 +58,13 @@
     return [fetched filteredArrayUsingPredicate:predicate];
 }
 
+-(NSString *)eventTypeForKey:(NSString *)key
+{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    NSAttributeDescription *attr = [entity attributesByName][@"eventType"];
+    return attr.userInfo[key];
+}
+
 -(NSManagedObjectContext *)managedObjectContext
 {
     if (!_managedObjectContext)

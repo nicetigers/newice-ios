@@ -32,5 +32,6 @@
 - (void)removeEventGroupsObject:(EventGroup *)value;
 - (void)addEventGroups:(NSSet *)values;
 - (void)removeEventGroups:(NSSet *)values;
+-(NSString *)formattedName;
 
 @end

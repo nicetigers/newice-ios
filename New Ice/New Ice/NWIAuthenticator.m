@@ -37,7 +37,7 @@
 -(void)showAuthenticationViewIfNeededWithCompletionHandler:(ShownBlock)completion
 {
     if (self.authenticated) {
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8000/verify"]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/verify", SERVER_URL]]];
         NSURLResponse *response;
         NSError *error;
         NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];

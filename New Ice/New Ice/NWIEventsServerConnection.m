@@ -27,7 +27,7 @@
     NSError *error;
     NSData *data = [NSJSONSerialization dataWithJSONObject:courseIDs options:0 error:&error];
     if (error) {
-        NSLog(@"Error encoding JSON. \n Error: %@", error.description);
+        NSLog(@"Error encoding JSON. \nError: %@", error.description);
         return;
     }
     NSString *stringValue = [[NSString alloc] initWithData:data encoding:NSStringEncodingConversionAllowLossy];
@@ -35,7 +35,7 @@
     if (async) {
         [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue currentQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
             if (connectionError) {
-                NSLog(@"Error downloading events for courses %@. \n Error: %@", courseIDs, connectionError.description);
+                NSLog(@"Error downloading events for courses %@. \nError: %@", courseIDs, connectionError.description);
                 return;
             }
             [self processDownloadedEvents:data];
@@ -44,7 +44,7 @@
         NSURLResponse *response;
         NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         if (error) {
-            NSLog(@"Error downloading events for courses %@. \n Error: %@", courseIDs, error.description);
+            NSLog(@"Error downloading events for courses %@. \nError: %@", courseIDs, error.description);
             return;
         }
         [self processDownloadedEvents:data];
@@ -58,7 +58,7 @@
     NSURLResponse *response;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     if (error) {
-        NSLog(@"Error downloading events. \n Error: %@", error.description);
+        NSLog(@"Error downloading events. \nError: %@", error.description);
         [self pullEventsForUser:netid lastConnected:lastConnected];
         return;
     }
@@ -73,7 +73,7 @@
     NSDictionary *parsed = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     NSArray *eventsArray = parsed[@"events"];
     if (error) {
-        NSLog(@"Error parsing downloaded events. \n Error: %@", error.description);
+        NSLog(@"Error parsing downloaded events. \nError: %@", error.description);
         return;
     }
     NSInteger count = 0;
@@ -81,8 +81,9 @@
         EventGroup *eventGroupObject = [self getOrCreateEventGroupForEventDict:eventDict];
         Event *eventObject = [self getOrCreateEventForEventDict:eventDict];
         [eventGroupObject addEventsObject:eventObject]; // TODO what if the event is already added to this event group?
-        NSLog(@"processed %d events", ++count);
+        count++;
     }
+    NSLog(@"processed %d events", count);
     [self.managedObjectContext save:&error];
     if (error) {
         NSLog(@"Error saving events. \nError: %@", error.description);

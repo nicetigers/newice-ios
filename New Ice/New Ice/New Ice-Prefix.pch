@@ -15,5 +15,6 @@
     #import <Foundation/Foundation.h>
     #define NOTIF_VIEW_VISIBLE @"view-visible-notif"
     #define NOTIF_DATA_UPDATE @"data-update-notif"
-    #define SERVER_URL @"http://localhost:8000"
+    #define SERVER_URL @"http://recal.io"
+    #define PRIMARY_COLOR_WHITE_THEME @"#007fff"
 #endif

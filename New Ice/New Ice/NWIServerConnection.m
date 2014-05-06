@@ -179,7 +179,7 @@
         enrollmentObject.section = sectionObject;
         enrollmentObject.addDate = [NSDate date];
         enrollmentObject.color = colorHex;
-        [self.managedObjectContext save:&error];
+        //[self.managedObjectContext save:&error];
         if (error) {
             NSLog(@"Error saving enrollment for user %@ and section %@. \n Error: %@", user.netid, sectionObject.name, error.description);
             return;
@@ -188,7 +188,7 @@
         // TODO update section color
         UserSectionTable *enrollmentObject = fetched.lastObject;
         enrollmentObject.color = colorHex;
-        [self.managedObjectContext save:&error];
+        //[self.managedObjectContext save:&error];
         if (error) {
             NSLog(@"Error saving enrollment for user %@ and section %@. \n Error: %@", user.netid, sectionObject.name, error.description);
             return;

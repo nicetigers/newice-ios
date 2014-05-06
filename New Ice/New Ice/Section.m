@@ -20,4 +20,9 @@
 @dynamic enrollment;
 @dynamic eventGroups;
 
+-(NSString *)formattedName
+{
+    return [NSString stringWithFormat:@"%@ - %@", self.course.courseListings, self.name];
+}
+
 @end
