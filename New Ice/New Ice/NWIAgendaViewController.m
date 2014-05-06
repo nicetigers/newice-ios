@@ -138,21 +138,23 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    NSIndexPath *selected = [self.collectionView indexPathsForSelectedItems].lastObject;
-    Event *event = self.eventObjects[selected.item];
-    unsigned int hexColor = 0;
-    for (UserSectionTable *enrollment in event.eventGroup.section.enrollment) {
-        if ([enrollment.user.netid isEqualToString:self.authenticator.netid]) {
-            hexColor = [enrollment.color unsignedIntValue];
+    if ([segue.destinationViewController isKindOfClass:[NWIEventTableViewController class]]) {
+        NSIndexPath *selected = [self.collectionView indexPathsForSelectedItems].lastObject;
+        Event *event = self.eventObjects[selected.item];
+        unsigned int hexColor = 0;
+        for (UserSectionTable *enrollment in event.eventGroup.section.enrollment) {
+            if ([enrollment.user.netid isEqualToString:self.authenticator.netid]) {
+                hexColor = [enrollment.color unsignedIntValue];
+            }
         }
+        UIColor *color = [UIColor colorFromHexInt:hexColor];
+        
+        
+        NWIEventTableViewController *eventsVC = [segue destinationViewController];
+        eventsVC.selectedEvent = event;
+        eventsVC.color = color;
+        eventsVC.eventsManager = self.eventsManager;
     }
-    UIColor *color = [UIColor colorFromHexInt:hexColor];
-    
-    
-    NWIEventTableViewController *eventsVC = [segue destinationViewController];
-    eventsVC.selectedEvent = event;
-    eventsVC.color = color;
-    eventsVC.eventsManager = self.eventsManager;
 }
 
 @end

@@ -32,6 +32,82 @@
             </objects>
             <point key="canvasLocation" x="844" y="336"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uMV-sz-3xH">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="dXG-GC-Gfg" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fwc-Xo-Fk5">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="7pP-Xu-R2Q" kind="relationship" relationship="rootViewController" id="Qhw-7H-PXL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c1r-4e-cgI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1271" y="412"/>
+        </scene>
+        <!--Settings Table View Controller - Settings-->
+        <scene sceneID="chH-5J-lhB">
+            <objects>
+                <tableViewController storyboardIdentifier="settings" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7pP-Xu-R2Q" customClass="NWISettingsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Mjt-rD-mHa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="Cvw-6a-cb1">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jcd-Gx-U76">
+                                        <rect key="frame" x="0.0" y="99" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jcd-Gx-U76" id="6mg-hi-7yj">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BGv-a2-tec">
+                                                    <rect key="frame" x="201" y="8" width="99" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <segments>
+                                                        <segment title="White"/>
+                                                        <segment title="Dark"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rn1-WK-Ubl">
+                                                    <rect key="frame" x="20" y="11" width="58" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="Rn1-WK-Ubl" secondAttribute="centerY" id="37B-qa-kew"/>
+                                                <constraint firstItem="Rn1-WK-Ubl" firstAttribute="leading" secondItem="6mg-hi-7yj" secondAttribute="leading" constant="20" id="d3X-X8-xzZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="BGv-a2-tec" secondAttribute="trailing" constant="20" id="gn0-pj-p7V"/>
+                                                <constraint firstAttribute="centerY" secondItem="BGv-a2-tec" secondAttribute="centerY" id="s9H-y8-YH1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="7pP-Xu-R2Q" id="BEJ-bi-LrK"/>
+                            <outlet property="delegate" destination="7pP-Xu-R2Q" id="KeK-CH-YIw"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="6Tc-EF-y3U">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="kLB-kN-Pe1">
+                            <connections>
+                                <action selector="dismissSettings:" destination="7pP-Xu-R2Q" id="wbx-fI-5Xc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YJ5-JW-Rul" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1671" y="217"/>
+        </scene>
         <!--Themed Navigation Controller-->
         <scene sceneID="1K3-0X-dKw">
             <objects>
@@ -129,7 +205,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Agenda" id="2UL-KM-qqW">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="bqe-nN-3iC"/>
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="bqe-nN-3iC">
+                            <connections>
+                                <segue destination="dXG-GC-Gfg" kind="modal" id="pZv-Ol-k2D"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bbiSettings" destination="bqe-nN-3iC" id="ApP-Pg-FEA"/>

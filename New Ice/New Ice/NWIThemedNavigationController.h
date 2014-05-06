@@ -11,5 +11,6 @@
 @interface NWIThemedNavigationController : UINavigationController
 
 @property (nonatomic, weak) UIViewController *viewControllerForPreferredStatusBarStyle;
+@property (nonatomic, assign) NWITheme theme;
 
 @end

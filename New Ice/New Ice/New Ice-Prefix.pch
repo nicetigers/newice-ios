@@ -17,4 +17,8 @@
     #define NOTIF_DATA_UPDATE @"data-update-notif"
     #define SERVER_URL @"http://recal.io"
     #define PRIMARY_COLOR_WHITE_THEME @"#007fff"
+typedef NS_ENUM(NSUInteger, NWITheme) {
+    NWIThemeWhite,
+    NWIThemeBlack,
+};
 #endif

@@ -39,6 +39,7 @@
 		81EC49C4190BE2F500B370CA /* NWIEventsServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EC49C3190BE2F500B370CA /* NWIEventsServerConnection.m */; };
 		81FBD3E1191919FE0095C32C /* UIColor+NWIHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FBD3E0191919FE0095C32C /* UIColor+NWIHex.m */; };
 		81FBD3E4191921CF0095C32C /* NWIThemedNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FBD3E3191921CF0095C32C /* NWIThemedNavigationController.m */; };
+		81FBD3E7191930440095C32C /* NWISettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FBD3E6191930440095C32C /* NWISettingsTableViewController.m */; };
 		81FFCAF719154F5F006FD552 /* UIViewController+NWIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FFCAF619154F5F006FD552 /* UIViewController+NWIViewController.m */; };
 		81FFCAFA19154FA8006FD552 /* NWIAgendaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FFCAF919154FA8006FD552 /* NWIAgendaViewController.m */; };
 		81FFCAFC19155486006FD552 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FFCAFB19155486006FD552 /* QuartzCore.framework */; };
@@ -108,6 +109,8 @@
 		81FBD3E0191919FE0095C32C /* UIColor+NWIHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NWIHex.m"; sourceTree = "<group>"; };
 		81FBD3E2191921CF0095C32C /* NWIThemedNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIThemedNavigationController.h; sourceTree = "<group>"; };
 		81FBD3E3191921CF0095C32C /* NWIThemedNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIThemedNavigationController.m; sourceTree = "<group>"; };
+		81FBD3E5191930440095C32C /* NWISettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWISettingsTableViewController.h; sourceTree = "<group>"; };
+		81FBD3E6191930440095C32C /* NWISettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWISettingsTableViewController.m; sourceTree = "<group>"; };
 		81FFCAF519154F5F006FD552 /* UIViewController+NWIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NWIViewController.h"; sourceTree = "<group>"; };
 		81FFCAF619154F5F006FD552 /* UIViewController+NWIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NWIViewController.m"; sourceTree = "<group>"; };
 		81FFCAF819154FA8006FD552 /* NWIAgendaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIAgendaViewController.h; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 				81145E0619170CE800231C0F /* NWIEventTableViewController.m */,
 				81FFCAFD19155AD7006FD552 /* NWIEventsManager.h */,
 				81FFCAFE19155AD7006FD552 /* NWIEventsManager.m */,
+				81FBD3E5191930440095C32C /* NWISettingsTableViewController.h */,
+				81FBD3E6191930440095C32C /* NWISettingsTableViewController.m */,
 				816C9D131907DCD4005D8243 /* Images.xcassets */,
 				816C9CFF1907DCD4005D8243 /* Supporting Files */,
 				81A01AB719082A83003CABBF /* Authentication */,
@@ -382,6 +387,7 @@
 				81FFCAFF19155AD7006FD552 /* NWIEventsManager.m in Sources */,
 				81145E0719170CE800231C0F /* NWIEventTableViewController.m in Sources */,
 				813D59951916CABC00C5B491 /* UserSectionTable.m in Sources */,
+				81FBD3E7191930440095C32C /* NWISettingsTableViewController.m in Sources */,
 				816616EE190B0B2700331B6C /* Course.m in Sources */,
 				810A150A190C239F0094BC61 /* Event.m in Sources */,
 				816616D7190B044E00331B6C /* User.m in Sources */,

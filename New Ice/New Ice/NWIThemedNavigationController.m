@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.theme = [[[NSUserDefaults standardUserDefaults] valueForKey:@"theme"] intValue];
     // Do any additional setup after loading the view.
 }
 
@@ -59,5 +60,28 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)updateBarStyle
+{
+    switch (self.theme) {
+        case NWIThemeBlack:
+            [self.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
+            break;
+        case NWIThemeWhite:
+            [self.navigationBar setBarStyle:UIBarStyleDefault];
+            break;
+        default:
+            break;
+    }
+}
+
+-(void)setTheme:(NWITheme)theme
+{
+    if (_theme != theme) {
+        _theme = theme;
+        [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:theme] forKey:@"theme"];
+        [self updateBarStyle];
+    }
+}
 
 @end
