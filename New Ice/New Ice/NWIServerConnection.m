@@ -45,6 +45,7 @@
     self = [super init];
     if (self) {
         self.idle = YES;
+        self.lastConnected = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastConnected"];
     }
     return self;
 }
@@ -255,6 +256,14 @@
         _eventsServerConnection.courseServerConnection = self.courseServerConnection;
     }
     return _eventsServerConnection;
+}
+
+-(void)setLastConnected:(NSDate *)lastConnected
+{
+    if (lastConnected != _lastConnected) {
+        _lastConnected = lastConnected;
+        [[NSUserDefaults standardUserDefaults] setObject:_lastConnected forKey:@"lastConnected"];
+    }
 }
 
 @end
