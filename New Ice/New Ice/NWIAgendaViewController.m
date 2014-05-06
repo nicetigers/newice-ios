@@ -78,7 +78,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.eventObjects.count;
+    return self.eventObjects.count * 2;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -132,7 +132,6 @@
     }
     UIColor *color = [UIColor colorFromHexInt:hexColor];
     sectionTag.backgroundColor = color;
-    
     
     return cell;
 }

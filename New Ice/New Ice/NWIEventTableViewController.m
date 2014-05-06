@@ -38,21 +38,21 @@
     
     //self.navigationItem.title = self.selectedEvent.eventTitle;
     
-    self.labelTitle.text = self.selectedEvent.eventTitle;
-    self.labelLocation.text = self.selectedEvent.eventLocation;
-    self.labelDescription.text = self.selectedEvent.eventDescription;
-    self.labelSection.text = self.selectedEvent.eventGroup.section.formattedName;
+    self.tfTitle.text = self.selectedEvent.eventTitle;
+    self.tfLocation.text = self.selectedEvent.eventLocation;
+    self.tfDescription.text = self.selectedEvent.eventDescription;
+    self.tfSection.text = self.selectedEvent.eventGroup.section.formattedName;
     
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     NSDateFormatter *timeFormatter = [NSDateFormatter new];
     [timeFormatter setDateStyle:NSDateFormatterNoStyle];
     [timeFormatter setTimeStyle:NSDateFormatterShortStyle];
-    self.labelDate.text = [dateFormatter stringFromDate:self.selectedEvent.eventStart];
-    self.labelStartTime.text = [timeFormatter stringFromDate:self.selectedEvent.eventStart];
-    self.labelEndtime.text = [timeFormatter stringFromDate:self.selectedEvent.eventEnd];
+    self.tfDate.text = [dateFormatter stringFromDate:self.selectedEvent.eventStart];
+    self.tfStartTime.text = [timeFormatter stringFromDate:self.selectedEvent.eventStart];
+    self.tfEndtime.text = [timeFormatter stringFromDate:self.selectedEvent.eventEnd];
     
-    self.labelType.text = [self.eventsManager eventTypeForKey:self.selectedEvent.eventType];
+    self.tfType.text = [self.eventsManager eventTypeForKey:self.selectedEvent.eventType];
     
     //[[UINavigationBar appearance] setBackgroundColor:[UIColor redColor]];
     
@@ -90,7 +90,8 @@
     return UIStatusBarStyleLightContent;
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table view 
+#pragma mark Data source
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -140,6 +141,14 @@
     return YES;
 }
 */
+
+#pragma mark Delegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+}
 
 #pragma mark - Navigation
 /*

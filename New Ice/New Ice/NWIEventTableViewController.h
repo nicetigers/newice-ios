@@ -14,14 +14,14 @@
 
 @property (nonatomic, strong) Event *selectedEvent;
 @property (nonatomic, strong) UIColor *color;
-@property (weak, nonatomic) IBOutlet UILabel *labelTitle;
-@property (weak, nonatomic) IBOutlet UILabel *labelDate;
-@property (weak, nonatomic) IBOutlet UILabel *labelStartTime;
-@property (weak, nonatomic) IBOutlet UILabel *labelEndtime;
-@property (weak, nonatomic) IBOutlet UILabel *labelLocation;
-@property (weak, nonatomic) IBOutlet UILabel *labelSection;
-@property (weak, nonatomic) IBOutlet UILabel *labelType;
-@property (weak, nonatomic) IBOutlet UILabel *labelDescription;
+@property (weak, nonatomic) IBOutlet UITextField *tfTitle;
+@property (weak, nonatomic) IBOutlet UITextField *tfDate;
+@property (weak, nonatomic) IBOutlet UITextField *tfStartTime;
+@property (weak, nonatomic) IBOutlet UITextField *tfEndtime;
+@property (weak, nonatomic) IBOutlet UITextField *tfLocation;
+@property (weak, nonatomic) IBOutlet UITextField *tfSection;
+@property (weak, nonatomic) IBOutlet UITextField *tfType;
+@property (weak, nonatomic) IBOutlet UITextView *tfDescription;
 
 @property (nonatomic, strong) NWIEventsManager *eventsManager;
 
