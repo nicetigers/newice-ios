@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NWIAgendaViewController : UICollectionViewController
+@interface NWIAgendaViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *bbiSettings;
 @end

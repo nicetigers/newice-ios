@@ -24,7 +24,7 @@
 #import "User.h"
 
 #define AGENDA_CELL_IDENTIFIER @"agenda reuse identifier"
-
+#define PADDING_CELL_IDENTIFIER @"padding"
 @interface NWIAgendaViewController ()
 
 @property (nonatomic, strong) NWIEventsManager *eventsManager;
@@ -51,7 +51,7 @@
     self.eventObjects = [self.eventsManager getFutureEvents];
     [[NSNotificationCenter defaultCenter] addObserverForName:NOTIF_DATA_UPDATE object:nil queue:nil usingBlock:^(NSNotification *note) {
         self.eventObjects = [self.eventsManager getFutureEvents];
-        [self.collectionView reloadData];
+        [self.tableView reloadData];
     }];
     self.bbiSettings.title = @"\u2699";
     UIFont *f1 = [UIFont systemFontOfSize:24];
@@ -65,31 +65,57 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Collection View
+#pragma mark - Table View
 #pragma mark DataSource
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row % 2 == 0) {
+        return 112;
+    }
+    else{
+        return 20;
+    }
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.eventObjects.count;
 }
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:AGENDA_CELL_IDENTIFIER forIndexPath:indexPath];
-    cell.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    cell.layer.borderWidth = 0.5;
+    return indexPath.row % 2 == 0;
+}
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"Hide";
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"commit");
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row % 2 == 1) {
+        return [tableView dequeueReusableCellWithIdentifier:PADDING_CELL_IDENTIFIER];
+    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:AGENDA_CELL_IDENTIFIER forIndexPath:indexPath];
+    UIView *container = [cell viewWithTag:-1];
+    container.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    container.layer.borderWidth = 0.5;
     
-    Event *eventObject = self.eventObjects[indexPath.item];
+    Event *eventObject = self.eventObjects[indexPath.row/2];
     
-    UILabel *titleLabel = (UILabel *) [cell viewWithTag:2];
+    UILabel *titleLabel = (UILabel *) [container viewWithTag:2];
     titleLabel.text = eventObject.eventTitle;
     
-    UILabel *sectionLabel = (UILabel *) [cell viewWithTag:3];
+    UILabel *sectionLabel = (UILabel *) [container viewWithTag:3];
     sectionLabel.text = [eventObject.eventGroup.section formattedName];
     
-    UILabel *dateLabel = (UILabel *) [cell viewWithTag:4];
+    UILabel *dateLabel = (UILabel *) [container viewWithTag:4];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDoesRelativeDateFormatting:YES];
     [dateFormatter setLocale:[NSLocale currentLocale]];
@@ -97,7 +123,7 @@
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     dateLabel.text = [dateFormatter stringFromDate:eventObject.eventStart];
     
-    UIView *sectionTag = (UIView *) [cell viewWithTag:1];
+    UIView *sectionTag = (UIView *) [container viewWithTag:1];
     unsigned int hexColor = 0;
     for (UserSectionTable *enrollment in eventObject.eventGroup.section.enrollment) {
         if ([enrollment.user.netid isEqualToString:self.authenticator.netid]) {
@@ -139,8 +165,8 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.destinationViewController isKindOfClass:[NWIEventTableViewController class]]) {
-        NSIndexPath *selected = [self.collectionView indexPathsForSelectedItems].lastObject;
-        Event *event = self.eventObjects[selected.item];
+        NSIndexPath *selected = [self.tableView indexPathsForSelectedRows].lastObject;
+        Event *event = self.eventObjects[selected.row/2];
         unsigned int hexColor = 0;
         for (UserSectionTable *enrollment in event.eventGroup.section.enrollment) {
             if ([enrollment.user.netid isEqualToString:self.authenticator.netid]) {
