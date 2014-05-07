@@ -52,7 +52,7 @@
     self.tfStartTime.text = [timeFormatter stringFromDate:self.selectedEvent.eventStart];
     self.tfEndtime.text = [timeFormatter stringFromDate:self.selectedEvent.eventEnd];
     
-    self.tfType.text = [self.eventsManager eventTypeForKey:self.selectedEvent.eventType];
+    self.tvType.text = [self.eventsManager eventTypeForKey:self.selectedEvent.eventType];
     
     //[[UINavigationBar appearance] setBackgroundColor:[UIColor redColor]];
     

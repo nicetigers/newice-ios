@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *tfEndtime;
 @property (weak, nonatomic) IBOutlet UITextField *tfLocation;
 @property (weak, nonatomic) IBOutlet UITextField *tfSection;
-@property (weak, nonatomic) IBOutlet UITextField *tfType;
+@property (weak, nonatomic) IBOutlet UITextField *tvType;
 @property (weak, nonatomic) IBOutlet UITextView *tfDescription;
 
 @property (nonatomic, strong) NWIEventsManager *eventsManager;

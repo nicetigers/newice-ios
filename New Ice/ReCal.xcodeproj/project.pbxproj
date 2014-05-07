@@ -80,20 +80,20 @@
 		816616EA190B07D800331B6C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		816616EC190B0B2700331B6C /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
 		816616ED190B0B2700331B6C /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
-		816C9CF51907DCD4005D8243 /* New Ice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "New Ice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		816C9CF51907DCD4005D8243 /* ReCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		816C9CF81907DCD4005D8243 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		816C9CFA1907DCD4005D8243 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		816C9CFC1907DCD4005D8243 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		816C9D001907DCD4005D8243 /* New Ice-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "New Ice-Info.plist"; sourceTree = "<group>"; };
+		816C9D001907DCD4005D8243 /* ReCal-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReCal-Info.plist"; sourceTree = "<group>"; };
 		816C9D021907DCD4005D8243 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		816C9D041907DCD4005D8243 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		816C9D061907DCD4005D8243 /* New Ice-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "New Ice-Prefix.pch"; sourceTree = "<group>"; };
+		816C9D061907DCD4005D8243 /* ReCal-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReCal-Prefix.pch"; sourceTree = "<group>"; };
 		816C9D071907DCD4005D8243 /* NWIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWIAppDelegate.h; sourceTree = "<group>"; };
 		816C9D081907DCD4005D8243 /* NWIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWIAppDelegate.m; sourceTree = "<group>"; };
 		816C9D0B1907DCD4005D8243 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		816C9D0E1907DCD4005D8243 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		816C9D131907DCD4005D8243 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		816C9D191907DCD4005D8243 /* New IceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "New IceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		816C9D191907DCD4005D8243 /* ReCalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReCalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		816C9D1A1907DCD4005D8243 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		816C9D221907DCD4005D8243 /* New IceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "New IceTests-Info.plist"; sourceTree = "<group>"; };
 		816C9D241907DCD4005D8243 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 		816C9CEC1907DCD3005D8243 = {
 			isa = PBXGroup;
 			children = (
-				816C9CFE1907DCD4005D8243 /* New Ice */,
+				816C9CFE1907DCD4005D8243 /* ReCal */,
 				816C9D201907DCD4005D8243 /* New IceTests */,
 				816C9CF71907DCD4005D8243 /* Frameworks */,
 				816C9CF61907DCD4005D8243 /* Products */,
@@ -159,8 +159,8 @@
 		816C9CF61907DCD4005D8243 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				816C9CF51907DCD4005D8243 /* New Ice.app */,
-				816C9D191907DCD4005D8243 /* New IceTests.xctest */,
+				816C9CF51907DCD4005D8243 /* ReCal.app */,
+				816C9D191907DCD4005D8243 /* ReCalTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -178,7 +178,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		816C9CFE1907DCD4005D8243 /* New Ice */ = {
+		816C9CFE1907DCD4005D8243 /* ReCal */ = {
 			isa = PBXGroup;
 			children = (
 				816C9D071907DCD4005D8243 /* NWIAppDelegate.h */,
@@ -204,16 +204,17 @@
 				816C9CFF1907DCD4005D8243 /* Supporting Files */,
 				81A01AB719082A83003CABBF /* Authentication */,
 			);
+			name = ReCal;
 			path = "New Ice";
 			sourceTree = "<group>";
 		};
 		816C9CFF1907DCD4005D8243 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				816C9D001907DCD4005D8243 /* New Ice-Info.plist */,
+				816C9D001907DCD4005D8243 /* ReCal-Info.plist */,
 				816C9D011907DCD4005D8243 /* InfoPlist.strings */,
 				816C9D041907DCD4005D8243 /* main.m */,
-				816C9D061907DCD4005D8243 /* New Ice-Prefix.pch */,
+				816C9D061907DCD4005D8243 /* ReCal-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -280,9 +281,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		816C9CF41907DCD4005D8243 /* New Ice */ = {
+		816C9CF41907DCD4005D8243 /* ReCal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 816C9D2A1907DCD4005D8243 /* Build configuration list for PBXNativeTarget "New Ice" */;
+			buildConfigurationList = 816C9D2A1907DCD4005D8243 /* Build configuration list for PBXNativeTarget "ReCal" */;
 			buildPhases = (
 				816C9CF11907DCD4005D8243 /* Sources */,
 				816C9CF21907DCD4005D8243 /* Frameworks */,
@@ -292,14 +293,14 @@
 			);
 			dependencies = (
 			);
-			name = "New Ice";
+			name = ReCal;
 			productName = "New Ice";
-			productReference = 816C9CF51907DCD4005D8243 /* New Ice.app */;
+			productReference = 816C9CF51907DCD4005D8243 /* ReCal.app */;
 			productType = "com.apple.product-type.application";
 		};
-		816C9D181907DCD4005D8243 /* New IceTests */ = {
+		816C9D181907DCD4005D8243 /* ReCalTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 816C9D2D1907DCD4005D8243 /* Build configuration list for PBXNativeTarget "New IceTests" */;
+			buildConfigurationList = 816C9D2D1907DCD4005D8243 /* Build configuration list for PBXNativeTarget "ReCalTests" */;
 			buildPhases = (
 				816C9D151907DCD4005D8243 /* Sources */,
 				816C9D161907DCD4005D8243 /* Frameworks */,
@@ -310,9 +311,9 @@
 			dependencies = (
 				816C9D1F1907DCD4005D8243 /* PBXTargetDependency */,
 			);
-			name = "New IceTests";
+			name = ReCalTests;
 			productName = "New IceTests";
-			productReference = 816C9D191907DCD4005D8243 /* New IceTests.xctest */;
+			productReference = 816C9D191907DCD4005D8243 /* ReCalTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -329,7 +330,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 816C9CF01907DCD3005D8243 /* Build configuration list for PBXProject "New Ice" */;
+			buildConfigurationList = 816C9CF01907DCD3005D8243 /* Build configuration list for PBXProject "ReCal" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -342,8 +343,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				816C9CF41907DCD4005D8243 /* New Ice */,
-				816C9D181907DCD4005D8243 /* New IceTests */,
+				816C9CF41907DCD4005D8243 /* ReCal */,
+				816C9D181907DCD4005D8243 /* ReCalTests */,
 			);
 		};
 /* End PBXProject section */
@@ -414,7 +415,7 @@
 /* Begin PBXTargetDependency section */
 		816C9D1F1907DCD4005D8243 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 816C9CF41907DCD4005D8243 /* New Ice */;
+			target = 816C9CF41907DCD4005D8243 /* ReCal */;
 			targetProxy = 816C9D1E1907DCD4005D8243 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -533,10 +534,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "New Ice/New Ice-Prefix.pch";
-				INFOPLIST_FILE = "New Ice/New Ice-Info.plist";
+				GCC_PREFIX_HEADER = "New Ice/ReCal-Prefix.pch";
+				INFOPLIST_FILE = "New Ice/ReCal-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ReCal;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -547,10 +548,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "New Ice/New Ice-Prefix.pch";
-				INFOPLIST_FILE = "New Ice/New Ice-Info.plist";
+				GCC_PREFIX_HEADER = "New Ice/ReCal-Prefix.pch";
+				INFOPLIST_FILE = "New Ice/ReCal-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ReCal;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -571,7 +572,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "New IceTests/New IceTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ReCalTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -589,7 +590,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "New Ice/New Ice-Prefix.pch";
 				INFOPLIST_FILE = "New IceTests/New IceTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ReCalTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -598,7 +599,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		816C9CF01907DCD3005D8243 /* Build configuration list for PBXProject "New Ice" */ = {
+		816C9CF01907DCD3005D8243 /* Build configuration list for PBXProject "ReCal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				816C9D281907DCD4005D8243 /* Debug */,
@@ -607,7 +608,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		816C9D2A1907DCD4005D8243 /* Build configuration list for PBXNativeTarget "New Ice" */ = {
+		816C9D2A1907DCD4005D8243 /* Build configuration list for PBXNativeTarget "ReCal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				816C9D2B1907DCD4005D8243 /* Debug */,
@@ -616,7 +617,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		816C9D2D1907DCD4005D8243 /* Build configuration list for PBXNativeTarget "New IceTests" */ = {
+		816C9D2D1907DCD4005D8243 /* Build configuration list for PBXNativeTarget "ReCalTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				816C9D2E1907DCD4005D8243 /* Debug */,

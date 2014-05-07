@@ -429,7 +429,7 @@
                         <outlet property="tfSection" destination="XUW-4R-AHx" id="sBf-Ws-Ooc"/>
                         <outlet property="tfStartTime" destination="knR-Nj-bjm" id="JKY-9b-nCg"/>
                         <outlet property="tfTitle" destination="SRj-Xi-Hq7" id="gW6-tk-19u"/>
-                        <outlet property="tfType" destination="P8x-KQ-zws" id="eV9-H1-WNK"/>
+                        <outlet property="tvType" destination="P8x-KQ-zws" id="q3L-vi-oh6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHg-cZ-cRG" userLabel="First Responder" sceneMemberID="firstResponder"/>

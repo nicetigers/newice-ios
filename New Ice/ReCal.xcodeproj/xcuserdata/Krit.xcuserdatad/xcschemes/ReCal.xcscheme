@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "816C9CF41907DCD4005D8243"
                BuildableName = "New Ice.app"
-               BlueprintName = "New Ice"
-               ReferencedContainer = "container:New Ice.xcodeproj">
+               BlueprintName = "ReCal"
+               ReferencedContainer = "container:ReCal.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "816C9D181907DCD4005D8243"
                BuildableName = "New IceTests.xctest"
-               BlueprintName = "New IceTests"
-               ReferencedContainer = "container:New Ice.xcodeproj">
+               BlueprintName = "ReCalTests"
+               ReferencedContainer = "container:ReCal.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "816C9CF41907DCD4005D8243"
             BuildableName = "New Ice.app"
-            BlueprintName = "New Ice"
-            ReferencedContainer = "container:New Ice.xcodeproj">
+            BlueprintName = "ReCal"
+            ReferencedContainer = "container:ReCal.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "816C9CF41907DCD4005D8243"
             BuildableName = "New Ice.app"
-            BlueprintName = "New Ice"
-            ReferencedContainer = "container:New Ice.xcodeproj">
+            BlueprintName = "ReCal"
+            ReferencedContainer = "container:ReCal.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "816C9CF41907DCD4005D8243"
             BuildableName = "New Ice.app"
-            BlueprintName = "New Ice"
-            ReferencedContainer = "container:New Ice.xcodeproj">
+            BlueprintName = "ReCal"
+            ReferencedContainer = "container:ReCal.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
