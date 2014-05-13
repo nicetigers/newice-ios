@@ -36,7 +36,7 @@
     NSError *error;
     
     NSManagedObjectModel *model = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel;
-    NSFetchRequest *fetchRequest = [model fetchRequestFromTemplateWithName:@"EventsBeforeDate" substitutionVariables:@{@"START_DATE": [NSDate date]}];
+    NSFetchRequest *fetchRequest = [model fetchRequestFromTemplateWithName:@"EventsBeforeDate" substitutionVariables:@{@"START_DATE": [[NSDate date] dateByAddingTimeInterval: -86400.0]}];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"eventStart" ascending:YES];
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
     NSArray *fetched = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];

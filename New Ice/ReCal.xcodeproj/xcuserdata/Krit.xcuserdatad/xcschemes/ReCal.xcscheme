@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "816C9CF41907DCD4005D8243"
-               BuildableName = "New Ice.app"
+               BuildableName = "ReCal.app"
                BlueprintName = "ReCal"
                ReferencedContainer = "container:ReCal.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "816C9D181907DCD4005D8243"
-               BuildableName = "New IceTests.xctest"
+               BuildableName = "ReCalTests.xctest"
                BlueprintName = "ReCalTests"
                ReferencedContainer = "container:ReCal.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "816C9CF41907DCD4005D8243"
-            BuildableName = "New Ice.app"
+            BuildableName = "ReCal.app"
             BlueprintName = "ReCal"
             ReferencedContainer = "container:ReCal.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "816C9CF41907DCD4005D8243"
-            BuildableName = "New Ice.app"
+            BuildableName = "ReCal.app"
             BlueprintName = "ReCal"
             ReferencedContainer = "container:ReCal.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "816C9CF41907DCD4005D8243"
-            BuildableName = "New Ice.app"
+            BuildableName = "ReCal.app"
             BlueprintName = "ReCal"
             ReferencedContainer = "container:ReCal.xcodeproj">
          </BuildableReference>

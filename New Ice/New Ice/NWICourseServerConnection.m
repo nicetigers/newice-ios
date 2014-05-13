@@ -168,7 +168,7 @@
         sectionObject.serverID = [NSNumber numberWithInteger:[sectionDict[@"section_id"] integerValue]];
     }
     sectionObject.name = sectionDict[@"section_name"];
-    sectionObject.sectionType = sectionDict[@"section_type"];
+    sectionObject.sectionType = sectionDict[@"section_type_code"];
     return sectionObject;
 }
 

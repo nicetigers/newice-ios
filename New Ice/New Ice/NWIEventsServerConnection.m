@@ -63,10 +63,11 @@
         return;
     }
     *lastConnected = [NSDate date];
-    [self processDownloadedEvents:data];
+    NSLog(@"downloaded events");
+    [self processDownloadedEvents:data clearOldEvents:lastSyncedInt == 0];
 }
 
--(void)processDownloadedEvents:(NSData *)data
+-(void)processDownloadedEvents:(NSData *)data clearOldEvents:(BOOL)clear
 {
     // TODO process hidden events
     NSError *error;
@@ -76,7 +77,21 @@
         NSLog(@"Error parsing downloaded events. \nError: %@", error.description);
         return;
     }
+    if (clear) {
+        NSManagedObjectModel *model = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel;
+        NSFetchRequest *fetchRequest = [model fetchRequestFromTemplateWithName:@"AllEventGroups" substitutionVariables:@{}];
+        NSArray *fetched = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        for (EventGroup *eventGroup in fetched) {
+            [self.managedObjectContext deleteObject:eventGroup];
+        }
+        [self.managedObjectContext save:&error];
+        if (error) {
+            NSLog(@"Error deleting events. \nError: %@", error.description);
+            return;
+        }
+    }
     NSInteger count = 0;
+    
     for (NSDictionary *eventDict in eventsArray) {
         EventGroup *eventGroupObject = [self getOrCreateEventGroupForEventDict:eventDict];
         Event *eventObject = [self getOrCreateEventForEventDict:eventDict];

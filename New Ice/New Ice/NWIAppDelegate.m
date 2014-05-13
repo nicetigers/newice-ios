@@ -31,6 +31,11 @@
         [self.managedObjectContext performSelectorOnMainThread:@selector(mergeChangesFromContextDidSaveNotification:) withObject:note waitUntilDone:YES];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_DATA_UPDATE object:nil];
     }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIF_REFRESH_EVENTS object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self.serverQueue addOperationWithBlock:^{
+            [self.serverConnection syncEvents];
+        }];
+    }];
     [self.window setTintColor:[UIColor colorFromHexString:PRIMARY_COLOR_WHITE_THEME]];
     return YES;
 }

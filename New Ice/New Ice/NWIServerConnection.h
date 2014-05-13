@@ -16,5 +16,6 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 -(void)sync;
+-(void)syncEvents;
 
 @end

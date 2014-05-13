@@ -45,7 +45,8 @@
     self = [super init];
     if (self) {
         self.idle = YES;
-        self.lastConnected = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastConnected"];
+        self.lastConnected = [NSDate dateWithTimeIntervalSince1970:0];
+        //self.lastConnected = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastConnected"];
     }
     return self;
 }
@@ -59,16 +60,33 @@
     [self.authenticator showAuthenticationViewIfNeededWithCompletionHandler:^(BOOL shown) {
         [self pull];
         self.idle = YES;
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_REFRESH_EVENTS_COMPLETE object:self userInfo:nil];
+    }];
+}
+-(void)syncEvents
+{
+    if (!self.idle) {
+        return;
+    }
+    self.idle = NO;
+    [self.authenticator showAuthenticationViewIfNeededWithCompletionHandler:^(BOOL shown) {
+        NSDate *lastConnected = self.lastConnected;
+        [self.eventsServerConnection pullEventsForUser:self.netid lastConnected:&lastConnected];
+        self.lastConnected = lastConnected;
+        self.idle = YES;
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_REFRESH_EVENTS_COMPLETE object:self userInfo:nil];
     }];
 }
 
 -(void)pull
 {
     NSLog(@"syncing");
-    
+    NSLog(@"syncing user");
     User *curUser = [self getUserByNetID:self.netid];
+    NSLog(@"syncing enrollment");
     [self syncEnrollmentForUser:curUser];
     NSDate *lastConnected = self.lastConnected;
+    NSLog(@"syncing events");
     [self.eventsServerConnection pullEventsForUser:self.netid lastConnected:&lastConnected];
     self.lastConnected = lastConnected;
 }

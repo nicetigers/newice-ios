@@ -15,6 +15,7 @@
 #import "NWIAppDelegate.h"
 #import "NWIEventsManager.h"
 #import "NWIAuthenticator.h"
+#import "NWIServerConnection.h"
 
 #import "Event.h"
 #import "EventGroup.h"
@@ -30,6 +31,7 @@
 @property (nonatomic, strong) NWIEventsManager *eventsManager;
 @property (nonatomic, strong) NSArray *eventObjects;
 @property (nonatomic, weak) NWIAuthenticator *authenticator;
+@property (nonatomic, weak) NWIServerConnection *serverConnection;
 
 @end
 
@@ -53,10 +55,21 @@
         self.eventObjects = [self.eventsManager getFutureEvents];
         [self.tableView reloadData];
     }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIF_REFRESH_EVENTS_COMPLETE object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self.refreshControl endRefreshing];
+        self.eventObjects = [self.eventsManager getFutureEvents];
+        [self.tableView reloadData];
+    }];
     self.bbiSettings.title = @"\u2699";
     UIFont *f1 = [UIFont systemFontOfSize:24];
     NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:f1, NSFontAttributeName, nil];
     [self.bbiSettings setTitleTextAttributes:dict forState:UIControlStateNormal];
+    [self.refreshControl addTarget:self action:@selector(refreshAgenda) forControlEvents:UIControlEventValueChanged];
+}
+
+-(void)refreshAgenda
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_REFRESH_EVENTS object:self userInfo:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,10 +106,11 @@
     return @"Hide";
 }
 
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+/*-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"commit");
 }
+ */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row % 2 == 1) {
@@ -154,6 +168,15 @@
         _authenticator = delegate.authenticator;
     }
     return _authenticator;
+}
+
+-(NWIServerConnection *)serverConnection
+{
+    if (!_serverConnection) {
+        NWIAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        _serverConnection = delegate.serverConnection;
+    }
+    return _serverConnection;
 }
 
 #pragma mark - Navigation

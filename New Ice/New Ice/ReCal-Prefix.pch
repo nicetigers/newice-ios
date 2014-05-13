@@ -15,7 +15,9 @@
     #import <Foundation/Foundation.h>
     #define NOTIF_VIEW_VISIBLE @"view-visible-notif"
     #define NOTIF_DATA_UPDATE @"data-update-notif"
-    #define SERVER_URL @"http://recal.io"
+    #define NOTIF_REFRESH_EVENTS @"refresh-events-notif"
+    #define NOTIF_REFRESH_EVENTS_COMPLETE @"refresh-events-complete-notif"
+    #define SERVER_URL @"http://localhost:8000"
     #define PRIMARY_COLOR_WHITE_THEME @"#007fff"
 typedef NS_ENUM(NSUInteger, NWITheme) {
     NWIThemeWhite,

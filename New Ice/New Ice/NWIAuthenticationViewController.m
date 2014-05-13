@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/login", SERVER_URL]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/login?next=/mobile_logged_in", SERVER_URL]]];
     [self.webView loadRequest:request];
     [self.webView setDelegate:self];
 }
@@ -52,7 +52,12 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    NSString *netid = [webView stringByEvaluatingJavaScriptFromString:@"USER_NETID"];
+    NSString *currentURL = [webView stringByEvaluatingJavaScriptFromString:@"String(window.location)"];
+    NSString *correctURL = [NSString stringWithFormat:@"%@/mobile_logged_in", SERVER_URL];
+    if ([currentURL rangeOfString:correctURL].location == NSNotFound)
+        return; // wrong url
+    NSString *netid = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
+    //NSString *netid = [webView stringByEvaluatingJavaScriptFromString:@"USER_NETID"];
     if (netid && ![netid isEqualToString:@""])
     {
         if ([self.authDelegate authenticationViewController:self didLoginWithUserName:netid])
