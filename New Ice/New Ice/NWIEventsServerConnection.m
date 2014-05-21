@@ -16,45 +16,45 @@
 
 @interface NWIEventsServerConnection ()
 
--(void)processDownloadedEvents:(NSData *)data;
+-(void)processDownloadedEvents:(NSData *)data clearOldEvents:(BOOL)clear;
 
 @end
 
 @implementation NWIEventsServerConnection
 
--(void)pullEventsForCourseIDs:(NSArray *)courseIDs makeAsynchronous:(BOOL)async
-{
-    NSError *error;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:courseIDs options:0 error:&error];
-    if (error) {
-        NSLog(@"Error encoding JSON. \nError: %@", error.description);
-        return;
-    }
-    NSString *stringValue = [[NSString alloc] initWithData:data encoding:NSStringEncodingConversionAllowLossy];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/get/bycourses/0?courseIDs=%@", SERVER_URL, stringValue]]];
-    if (async) {
-        [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue currentQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-            if (connectionError) {
-                NSLog(@"Error downloading events for courses %@. \nError: %@", courseIDs, connectionError.description);
-                return;
-            }
-            [self processDownloadedEvents:data];
-        }];
-    } else {
-        NSURLResponse *response;
-        NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        if (error) {
-            NSLog(@"Error downloading events for courses %@. \nError: %@", courseIDs, error.description);
-            return;
-        }
-        [self processDownloadedEvents:data];
-    }
-}
+//-(void)pullEventsForCourseIDs:(NSArray *)courseIDs makeAsynchronous:(BOOL)async
+//{
+//    NSError *error;
+//    NSData *data = [NSJSONSerialization dataWithJSONObject:courseIDs options:0 error:&error];
+//    if (error) {
+//        NSLog(@"Error encoding JSON. \nError: %@", error.description);
+//        return;
+//    }
+//    NSString *stringValue = [[NSString alloc] initWithData:data encoding:NSStringEncodingConversionAllowLossy];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/get/bycourses/0?courseIDs=%@", SERVER_URL, stringValue]]];
+//    if (async) {
+//        [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue currentQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//            if (connectionError) {
+//                NSLog(@"Error downloading events for courses %@. \nError: %@", courseIDs, connectionError.description);
+//                return;
+//            }
+//            [self processDownloadedEvents:data];
+//        }];
+//    } else {
+//        NSURLResponse *response;
+//        NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+//        if (error) {
+//            NSLog(@"Error downloading events for courses %@. \nError: %@", courseIDs, error.description);
+//            return;
+//        }
+//        [self processDownloadedEvents:data];
+//    }
+//}
 -(void)pullEventsForUser:(NSString *)netid lastConnected:(NSDate **)lastConnected
 {
     NSError *error;
     NSInteger lastSyncedInt = [*lastConnected timeIntervalSince1970];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/get/%d", SERVER_URL, lastSyncedInt]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/get/%d", SERVER_URL, (int) lastSyncedInt]]];
     NSURLResponse *response;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     if (error) {
@@ -98,7 +98,7 @@
         [eventGroupObject addEventsObject:eventObject]; // TODO what if the event is already added to this event group?
         count++;
     }
-    NSLog(@"processed %d events", count);
+    NSLog(@"processed %d events", (int) count);
     [self.managedObjectContext save:&error];
     if (error) {
         NSLog(@"Error saving events. \nError: %@", error.description);
@@ -176,7 +176,6 @@
             return nil;
         }
     }
-    
     
     return eventObject;
 }
