@@ -1,8 +1,8 @@
 //
 //  Section.h
-//  New Ice
+//  ReCal
 //
-//  Created by Naphat Sanguansin on 4/25/14.
+//  Created by Naphat Sanguansin on 5/21/14.
 //
 //
 
@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "ServerObject.h"
 
-@class Course, EventGroup, UserSectionTable;
+@class Course, Event, UserSectionTable;
 
 @interface Section : ServerObject
 
@@ -18,7 +18,7 @@
 @property (nonatomic, retain) NSString * sectionType;
 @property (nonatomic, retain) Course *course;
 @property (nonatomic, retain) NSSet *enrollment;
-@property (nonatomic, retain) NSSet *eventGroups;
+@property (nonatomic, retain) NSSet *events;
 @end
 
 @interface Section (CoreDataGeneratedAccessors)
@@ -28,10 +28,9 @@
 - (void)addEnrollment:(NSSet *)values;
 - (void)removeEnrollment:(NSSet *)values;
 
-- (void)addEventGroupsObject:(EventGroup *)value;
-- (void)removeEventGroupsObject:(EventGroup *)value;
-- (void)addEventGroups:(NSSet *)values;
-- (void)removeEventGroups:(NSSet *)values;
--(NSString *)formattedName;
+- (void)addEventsObject:(Event *)value;
+- (void)removeEventsObject:(Event *)value;
+- (void)addEvents:(NSSet *)values;
+- (void)removeEvents:(NSSet *)values;
 
 @end

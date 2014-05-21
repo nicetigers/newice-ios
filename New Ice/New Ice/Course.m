@@ -1,8 +1,8 @@
 //
 //  Course.m
-//  New Ice
+//  ReCal
 //
-//  Created by Naphat Sanguansin on 4/25/14.
+//  Created by Naphat Sanguansin on 5/21/14.
 //
 //
 
@@ -15,7 +15,6 @@
 
 @dynamic courseListings;
 @dynamic desc;
-@dynamic professor;
 @dynamic title;
 @dynamic sections;
 @dynamic semester;

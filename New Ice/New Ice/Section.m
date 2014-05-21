@@ -1,14 +1,14 @@
 //
 //  Section.m
-//  New Ice
+//  ReCal
 //
-//  Created by Naphat Sanguansin on 4/25/14.
+//  Created by Naphat Sanguansin on 5/21/14.
 //
 //
 
 #import "Section.h"
 #import "Course.h"
-#import "EventGroup.h"
+#import "Event.h"
 #import "UserSectionTable.h"
 
 
@@ -18,11 +18,6 @@
 @dynamic sectionType;
 @dynamic course;
 @dynamic enrollment;
-@dynamic eventGroups;
-
--(NSString *)formattedName
-{
-    return [NSString stringWithFormat:@"%@ - %@", self.course.courseListings, self.name];
-}
+@dynamic events;
 
 @end

@@ -9,7 +9,6 @@
 #import "NWIEventsServerConnection.h"
 #import "NWICourseServerConnection.h"
 
-#import "EventGroup.h"
 #import "Event.h"
 #import "Section.h"
 
@@ -79,10 +78,10 @@
     }
     if (clear) {
         NSManagedObjectModel *model = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel;
-        NSFetchRequest *fetchRequest = [model fetchRequestFromTemplateWithName:@"AllEventGroups" substitutionVariables:@{}];
+        NSFetchRequest *fetchRequest = [model fetchRequestFromTemplateWithName:@"AllEvents" substitutionVariables:@{}];
         NSArray *fetched = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-        for (EventGroup *eventGroup in fetched) {
-            [self.managedObjectContext deleteObject:eventGroup];
+        for (Event *event in fetched) {
+            [self.managedObjectContext deleteObject:event];
         }
         [self.managedObjectContext save:&error];
         if (error) {
@@ -93,9 +92,7 @@
     NSInteger count = 0;
     
     for (NSDictionary *eventDict in eventsArray) {
-        EventGroup *eventGroupObject = [self getOrCreateEventGroupForEventDict:eventDict];
-        Event *eventObject = [self getOrCreateEventForEventDict:eventDict];
-        [eventGroupObject addEventsObject:eventObject]; // TODO what if the event is already added to this event group?
+        [self updateEventWithEventDict:eventDict];
         count++;
     }
     NSLog(@"processed %d events", (int) count);
@@ -105,62 +102,22 @@
         return;
     }
 }
--(EventGroup *)getOrCreateEventGroupForEventDict:(NSDictionary *)eventDict
+-(Event *)updateEventWithEventDict:(NSDictionary *)eventDict
 {
-    NSError *error;
-    NSManagedObjectModel *model = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel;
-    NSFetchRequest *fetchRequest = [model fetchRequestFromTemplateWithName:@"EventGroupByID" substitutionVariables:@{@"SERV_ID":  eventDict[@"event_group_id"]}];
-    NSArray *fetched = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    EventGroup *eventGroupObject;
-    if (fetched.count > 0) {
-        // TODO should check whether recurrence pattern has changed, and delete all corresponding events
-        // TODO before replacing, should check if modified time is newer
-        eventGroupObject = fetched.lastObject;
-    } else {
-        eventGroupObject = [NSEntityDescription insertNewObjectForEntityForName:@"EventGroup" inManagedObjectContext:self.managedObjectContext];
-        eventGroupObject.startDate = [NSDate dateWithTimeIntervalSince1970:[eventDict[@"event_start"] doubleValue]];
-        eventGroupObject.modifiedTime = [NSDate dateWithTimeIntervalSince1970:[eventDict[@"modified_time"] doubleValue]];
-        eventGroupObject.serverID = [NSNumber numberWithInteger:[eventDict[@"event_group_id"] integerValue]];
-        Section *sectionObject = [self.courseServerConnection getSectionByID:[eventDict[@"section_id"] integerValue]];
-        [sectionObject addEventGroupsObject:eventGroupObject];
-        if ([eventDict.allKeys containsObject:@"recurrence_days"]) {
-            NSData *jsonRecur = [NSJSONSerialization dataWithJSONObject:eventDict[@"recurrence_days"] options:0 error:&error];
-            if (error)
-            {
-                NSLog(@"error serializing json for recurrence days. error: %@", error.description);
-                return nil;
-            }
-            eventGroupObject.recurrenceDays = [[NSString alloc] initWithData:jsonRecur encoding:NSStringEncodingConversionAllowLossy];
-            eventGroupObject.recurrenceInterval = [NSNumber numberWithInteger:[eventDict[@"recurrence_interval"] integerValue]];
-            eventGroupObject.endDate = [NSDate dateWithTimeIntervalSince1970:[eventDict[@"recurrence_end"] doubleValue]];
-        }
-        //[self.managedObjectContext save:&error];
-        if (error) {
-            NSLog(@"Error saving new event group. \nError: %@", error.description);
-            return nil;
-        }
-    }
-    return eventGroupObject;
-}
--(Event *)getOrCreateEventForEventDict:(NSDictionary *)eventDict
-{
-    BOOL shouldSave = NO;
     NSError *error;
     NSManagedObjectModel *model = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel;
     NSFetchRequest *fetchRequest = [model fetchRequestFromTemplateWithName:@"EventByID" substitutionVariables:@{@"SERV_ID":  eventDict[@"event_id"]}];
     NSArray *fetched = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     Event *eventObject;
     if (fetched.count > 0) {
-        // TODO should check whether recurrence pattern has changed, and delete all corresponding events
         // TODO before replacing, should check if modified time is newer
         eventObject = fetched.lastObject;
     } else {
         eventObject = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
         eventObject.serverID = [NSNumber numberWithInteger:[eventDict[@"event_id"] integerValue]];
-        [eventObject setEventGroup:[self getOrCreateEventGroupForEventDict:eventDict]];
-        
-        shouldSave = YES;
-        
+        eventObject.eventGroupID = [NSNumber numberWithInteger:[eventDict[@"event_group_id"] integerValue]];
+        Section *sectionObject = [self.courseServerConnection getSectionByID:[eventDict[@"section_id"] integerValue]];
+        [sectionObject addEventsObject:eventObject];
     }
     eventObject.eventStart = [NSDate dateWithTimeIntervalSince1970:[eventDict[@"event_start"] doubleValue]];
     eventObject.eventEnd = [NSDate dateWithTimeIntervalSince1970:[eventDict[@"event_end"] doubleValue]];
@@ -169,12 +126,18 @@
     eventObject.eventDescription = eventDict[@"event_description"];
     eventObject.eventLocation = eventDict[@"event_location"];
     eventObject.eventType = eventDict[@"event_type"];
-    if (shouldSave) {
-        //[self.managedObjectContext save:&error];
-        if (error) {
-            NSLog(@"Error saving new event. \nError: %@", error.description);
+    
+    // handle recurrence
+    if ([eventDict.allKeys containsObject:@"recurrence_days"]) {
+        NSData *jsonRecur = [NSJSONSerialization dataWithJSONObject:eventDict[@"recurrence_days"] options:0 error:&error];
+        if (error)
+        {
+            NSLog(@"error serializing json for recurrence days. error: %@", error.description);
             return nil;
         }
+        eventObject.recurrenceDays = [[NSString alloc] initWithData:jsonRecur encoding:NSStringEncodingConversionAllowLossy];
+        eventObject.recurrenceInterval = [NSNumber numberWithInteger:[eventDict[@"recurrence_interval"] integerValue]];
+        eventObject.recurrenceEndDate = [NSDate dateWithTimeIntervalSince1970:[eventDict[@"recurrence_end"] doubleValue]];
     }
     
     return eventObject;
