@@ -12,7 +12,7 @@
 #import "NWIEventsManager.h"
 
 #import "Event.h"
-#import "Section+FormattedName.h"
+#import "Section+Extended.h"
 
 @interface NWIEventTableViewController ()
 

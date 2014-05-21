@@ -33,7 +33,8 @@
 		8178ABF3192D056800352848 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 8178ABF2192D056800352848 /* Event.m */; };
 		8178ABF6192D056800352848 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 8178ABF5192D056800352848 /* Course.m */; };
 		8178ABF9192D056800352848 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 8178ABF8192D056800352848 /* Section.m */; };
-		8178ABFC192D07C000352848 /* Section+FormattedName.m in Sources */ = {isa = PBXBuildFile; fileRef = 8178ABFB192D07C000352848 /* Section+FormattedName.m */; };
+		8178ABFC192D07C000352848 /* Section+Extended.m in Sources */ = {isa = PBXBuildFile; fileRef = 8178ABFB192D07C000352848 /* Section+Extended.m */; };
+		8178ABFF192D1F4E00352848 /* User+Extended.m in Sources */ = {isa = PBXBuildFile; fileRef = 8178ABFE192D1F4E00352848 /* User+Extended.m */; };
 		81A01A6D1907EC07003CABBF /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81A01A6B1907EC06003CABBF /* Model.xcdatamodeld */; };
 		81A01AB319082734003CABBF /* NWIAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01AB219082734003CABBF /* NWIAuthenticator.m */; };
 		81A01AB619082A7B003CABBF /* NWIAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01AB519082A7B003CABBF /* NWIAuthenticationViewController.m */; };
@@ -59,7 +60,7 @@
 
 /* Begin PBXFileReference section */
 		81145E0519170CE800231C0F /* NWIEventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIEventTableViewController.h; sourceTree = "<group>"; };
-		81145E0619170CE800231C0F /* NWIEventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIEventTableViewController.m; sourceTree = "<group>"; };
+		81145E0619170CE800231C0F /* NWIEventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NWIEventTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		816616B4190AE82B00331B6C /* NWIServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIServerConnection.h; sourceTree = "<group>"; };
 		816616B5190AE82B00331B6C /* NWIServerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIServerConnection.m; sourceTree = "<group>"; };
 		816616E7190B04AC00331B6C /* NWICourseServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWICourseServerConnection.h; sourceTree = "<group>"; };
@@ -99,8 +100,10 @@
 		8178ABF5192D056800352848 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		8178ABF7192D056800352848 /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
 		8178ABF8192D056800352848 /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
-		8178ABFA192D07C000352848 /* Section+FormattedName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Section+FormattedName.h"; sourceTree = "<group>"; };
-		8178ABFB192D07C000352848 /* Section+FormattedName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Section+FormattedName.m"; sourceTree = "<group>"; };
+		8178ABFA192D07C000352848 /* Section+Extended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "Section+Extended.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		8178ABFB192D07C000352848 /* Section+Extended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "Section+Extended.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		8178ABFD192D1F4E00352848 /* User+Extended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Extended.h"; sourceTree = "<group>"; };
+		8178ABFE192D1F4E00352848 /* User+Extended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Extended.m"; sourceTree = "<group>"; };
 		81A01A6C1907EC07003CABBF /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		81A01AB119082734003CABBF /* NWIAuthenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIAuthenticator.h; sourceTree = "<group>"; };
 		81A01AB219082734003CABBF /* NWIAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIAuthenticator.m; sourceTree = "<group>"; };
@@ -117,7 +120,7 @@
 		81FFCAF519154F5F006FD552 /* UIViewController+NWIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NWIViewController.h"; sourceTree = "<group>"; };
 		81FFCAF619154F5F006FD552 /* UIViewController+NWIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NWIViewController.m"; sourceTree = "<group>"; };
 		81FFCAF819154FA8006FD552 /* NWIAgendaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIAgendaViewController.h; sourceTree = "<group>"; };
-		81FFCAF919154FA8006FD552 /* NWIAgendaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIAgendaViewController.m; sourceTree = "<group>"; };
+		81FFCAF919154FA8006FD552 /* NWIAgendaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NWIAgendaViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		81FFCAFB19155486006FD552 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		81FFCAFD19155AD7006FD552 /* NWIEventsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIEventsManager.h; sourceTree = "<group>"; };
 		81FFCAFE19155AD7006FD552 /* NWIEventsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIEventsManager.m; sourceTree = "<group>"; };
@@ -260,8 +263,10 @@
 				8178ABE6192D056800352848 /* UserSectionTable.m */,
 				8178ABE2192D056700352848 /* ServerObject.h */,
 				8178ABE3192D056700352848 /* ServerObject.m */,
-				8178ABFA192D07C000352848 /* Section+FormattedName.h */,
-				8178ABFB192D07C000352848 /* Section+FormattedName.m */,
+				8178ABFA192D07C000352848 /* Section+Extended.h */,
+				8178ABFB192D07C000352848 /* Section+Extended.m */,
+				8178ABFD192D1F4E00352848 /* User+Extended.h */,
+				8178ABFE192D1F4E00352848 /* User+Extended.m */,
 				816616B4190AE82B00331B6C /* NWIServerConnection.h */,
 				816616B5190AE82B00331B6C /* NWIServerConnection.m */,
 				816616E7190B04AC00331B6C /* NWICourseServerConnection.h */,
@@ -398,7 +403,8 @@
 				81FFCAFF19155AD7006FD552 /* NWIEventsManager.m in Sources */,
 				81145E0719170CE800231C0F /* NWIEventTableViewController.m in Sources */,
 				81FBD3E7191930440095C32C /* NWISettingsTableViewController.m in Sources */,
-				8178ABFC192D07C000352848 /* Section+FormattedName.m in Sources */,
+				8178ABFF192D1F4E00352848 /* User+Extended.m in Sources */,
+				8178ABFC192D07C000352848 /* Section+Extended.m in Sources */,
 				816C9D091907DCD4005D8243 /* NWIAppDelegate.m in Sources */,
 				8178ABE4192D056700352848 /* ServerObject.m in Sources */,
 				816616E9190B04AC00331B6C /* NWICourseServerConnection.m in Sources */,

@@ -18,10 +18,10 @@
 #import "NWIServerConnection.h"
 
 #import "Event.h"
-#import "Section+FormattedName.h"
+#import "Section+Extended.h"
 #import "Course.h"
 #import "UserSectionTable.h"
-#import "User.h"
+#import "User+Extended.h"
 
 #define AGENDA_CELL_IDENTIFIER @"agenda reuse identifier"
 #define PADDING_CELL_IDENTIFIER @"padding"
@@ -31,6 +31,7 @@
 @property (nonatomic, strong) NSArray *eventObjects;
 @property (nonatomic, weak) NWIAuthenticator *authenticator;
 @property (nonatomic, weak) NWIServerConnection *serverConnection;
+@property (nonatomic, weak) NSManagedObjectContext *managedObjectContext;
 
 @end
 
@@ -137,14 +138,8 @@
     dateLabel.text = [dateFormatter stringFromDate:eventObject.eventStart];
     
     UIView *sectionTag = (UIView *) [container viewWithTag:1];
-    unsigned int hexColor = 0;
-    for (UserSectionTable *enrollment in eventObject.section.enrollment) {
-        if ([enrollment.user.netid isEqualToString:self.authenticator.netid]) {
-            hexColor = [enrollment.color unsignedIntValue];
-        }
-    }
-    UIColor *color = [UIColor colorFromHexInt:hexColor];
-    sectionTag.backgroundColor = color;
+   
+    sectionTag.backgroundColor = [eventObject.section colorForUser:[User userByNetID:self.authenticator.netid inManagedObjectContext:self.managedObjectContext]]; // TODO potentially bad for performance, querying user each time
     
     return cell;
 }
@@ -177,6 +172,15 @@
     }
     return _serverConnection;
 }
+-(NSManagedObjectContext *)managedObjectContext
+{
+    if (!_managedObjectContext)
+    {
+        NWIAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        _managedObjectContext = delegate.managedObjectContext;
+    }
+    return _managedObjectContext;
+}
 
 #pragma mark - Navigation
 
@@ -188,18 +192,9 @@
     if ([segue.destinationViewController isKindOfClass:[NWIEventTableViewController class]]) {
         NSIndexPath *selected = [self.tableView indexPathsForSelectedRows].lastObject;
         Event *event = self.eventObjects[selected.row/2];
-        unsigned int hexColor = 0;
-        for (UserSectionTable *enrollment in event.section.enrollment) {
-            if ([enrollment.user.netid isEqualToString:self.authenticator.netid]) {
-                hexColor = [enrollment.color unsignedIntValue];
-            }
-        }
-        UIColor *color = [UIColor colorFromHexInt:hexColor];
-        
-        
         NWIEventTableViewController *eventsVC = [segue destinationViewController];
         eventsVC.selectedEvent = event;
-        eventsVC.color = color;
+        
         eventsVC.eventsManager = self.eventsManager;
     }
 }

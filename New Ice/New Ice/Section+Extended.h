@@ -7,9 +7,11 @@
 //
 
 #import "Section.h"
+@class User;
 
-@interface Section (FormattedName)
+@interface Section (Extended)
 
 -(NSString *)formattedName;
+-(UIColor *)colorForUser:(User *)user;
 
 @end

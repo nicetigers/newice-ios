@@ -13,7 +13,7 @@
 #import "NWICourseServerConnection.h"
 #import "NWIEventsServerConnection.h"
 
-#import "User.h"
+#import "User+Extended.h"
 #import "Course.h"
 #import "Section.h"
 #import "UserSectionTable.h"
@@ -227,16 +227,9 @@
 }
 -(User *)getUserByNetID:(NSString *)netID
 {
-    NSError *error;
-    NSManagedObjectModel *model = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel;
-    NSFetchRequest *fetchRequest = [model fetchRequestFromTemplateWithName:@"UserByNetID" substitutionVariables:@{@"NET_ID":  netID}];
-    NSArray *fetched = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    if (error) {
-        NSLog(@"Error proccessing fetch request for net id %@. Error: %@", netID, error.description);
-        return nil;
-    }
-    if (fetched.count > 0) {
-        return fetched.lastObject;
+    User *user = [User userByNetID:netID inManagedObjectContext:self.managedObjectContext];
+    if (user) {
+        return user;
     }
     // must download user first
     [self pullUserByNetID:netID makeAsynchronous:NO];
