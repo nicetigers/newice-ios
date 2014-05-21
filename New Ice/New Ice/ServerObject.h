@@ -1,8 +1,8 @@
 //
 //  ServerObject.h
-//  New Ice
+//  ReCal
 //
-//  Created by Naphat Sanguansin on 4/25/14.
+//  Created by Naphat Sanguansin on 5/21/14.
 //
 //
 

@@ -13,7 +13,6 @@
 #import "NWIAuthenticator.h"
 
 #import "Event.h"
-#import "EventGroup.h"
 #import "Section.h"
 #import "User.h"
 #import "UserSectionTable.h"
@@ -46,7 +45,7 @@
     }
     NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
         Event *eventObject = evaluatedObject;
-        for (UserSectionTable *enrollment in eventObject.eventGroup.section.enrollment)
+        for (UserSectionTable *enrollment in eventObject.section.enrollment)
         {
             if ([enrollment.user.netid isEqualToString:self.authenticator.netid]) {
                 return YES;

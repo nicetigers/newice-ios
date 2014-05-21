@@ -1,13 +1,13 @@
 //
 //  Event.m
-//  New Ice
+//  ReCal
 //
-//  Created by Naphat Sanguansin on 4/26/14.
+//  Created by Naphat Sanguansin on 5/21/14.
 //
 //
 
 #import "Event.h"
-#import "EventGroup.h"
+#import "Section.h"
 
 
 @implementation Event
@@ -19,6 +19,10 @@
 @dynamic eventTitle;
 @dynamic eventType;
 @dynamic modifiedTime;
-@dynamic eventGroup;
+@dynamic eventGroupID;
+@dynamic recurrenceDays;
+@dynamic recurrenceInterval;
+@dynamic recurrenceEndDate;
+@dynamic section;
 
 @end

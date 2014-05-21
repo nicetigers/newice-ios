@@ -7,18 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		810A150A190C239F0094BC61 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 810A1509190C239F0094BC61 /* Event.m */; };
 		81145E0719170CE800231C0F /* NWIEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81145E0619170CE800231C0F /* NWIEventTableViewController.m */; };
-		813D59951916CABC00C5B491 /* UserSectionTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 813D59941916CABC00C5B491 /* UserSectionTable.m */; };
 		816616B6190AE82B00331B6C /* NWIServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616B5190AE82B00331B6C /* NWIServerConnection.m */; };
-		816616D1190B044D00331B6C /* EventGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616D0190B044D00331B6C /* EventGroup.m */; };
-		816616D4190B044E00331B6C /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616D3190B044E00331B6C /* Section.m */; };
-		816616D7190B044E00331B6C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616D6190B044E00331B6C /* User.m */; };
-		816616DA190B044E00331B6C /* Semester.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616D9190B044E00331B6C /* Semester.m */; };
-		816616DD190B044E00331B6C /* ServerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616DC190B044E00331B6C /* ServerObject.m */; };
 		816616E9190B04AC00331B6C /* NWICourseServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616E8190B04AC00331B6C /* NWICourseServerConnection.m */; };
 		816616EB190B07D800331B6C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816616EA190B07D800331B6C /* CoreData.framework */; };
-		816616EE190B0B2700331B6C /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616ED190B0B2700331B6C /* Course.m */; };
 		816C9CF91907DCD4005D8243 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816C9CF81907DCD4005D8243 /* Foundation.framework */; };
 		816C9CFB1907DCD4005D8243 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816C9CFA1907DCD4005D8243 /* CoreGraphics.framework */; };
 		816C9CFD1907DCD4005D8243 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816C9CFC1907DCD4005D8243 /* UIKit.framework */; };
@@ -33,6 +25,15 @@
 		816C9D1D1907DCD4005D8243 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816C9CFC1907DCD4005D8243 /* UIKit.framework */; };
 		816C9D251907DCD4005D8243 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 816C9D231907DCD4005D8243 /* InfoPlist.strings */; };
 		816C9D271907DCD4005D8243 /* New_IceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 816C9D261907DCD4005D8243 /* New_IceTests.m */; };
+		8178ABE4192D056700352848 /* ServerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8178ABE3192D056700352848 /* ServerObject.m */; };
+		8178ABE7192D056800352848 /* UserSectionTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 8178ABE6192D056800352848 /* UserSectionTable.m */; };
+		8178ABEA192D056800352848 /* Semester.m in Sources */ = {isa = PBXBuildFile; fileRef = 8178ABE9192D056800352848 /* Semester.m */; };
+		8178ABED192D056800352848 /* MutableServerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8178ABEC192D056800352848 /* MutableServerObject.m */; };
+		8178ABF0192D056800352848 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 8178ABEF192D056800352848 /* User.m */; };
+		8178ABF3192D056800352848 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 8178ABF2192D056800352848 /* Event.m */; };
+		8178ABF6192D056800352848 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 8178ABF5192D056800352848 /* Course.m */; };
+		8178ABF9192D056800352848 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 8178ABF8192D056800352848 /* Section.m */; };
+		8178ABFC192D07C000352848 /* Section+FormattedName.m in Sources */ = {isa = PBXBuildFile; fileRef = 8178ABFB192D07C000352848 /* Section+FormattedName.m */; };
 		81A01A6D1907EC07003CABBF /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81A01A6B1907EC06003CABBF /* Model.xcdatamodeld */; };
 		81A01AB319082734003CABBF /* NWIAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01AB219082734003CABBF /* NWIAuthenticator.m */; };
 		81A01AB619082A7B003CABBF /* NWIAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A01AB519082A7B003CABBF /* NWIAuthenticationViewController.m */; };
@@ -57,29 +58,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		810A1508190C239F0094BC61 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		810A1509190C239F0094BC61 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		81145E0519170CE800231C0F /* NWIEventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIEventTableViewController.h; sourceTree = "<group>"; };
 		81145E0619170CE800231C0F /* NWIEventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIEventTableViewController.m; sourceTree = "<group>"; };
-		813D59931916CABC00C5B491 /* UserSectionTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSectionTable.h; sourceTree = "<group>"; };
-		813D59941916CABC00C5B491 /* UserSectionTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSectionTable.m; sourceTree = "<group>"; };
 		816616B4190AE82B00331B6C /* NWIServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIServerConnection.h; sourceTree = "<group>"; };
 		816616B5190AE82B00331B6C /* NWIServerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIServerConnection.m; sourceTree = "<group>"; };
-		816616CF190B044D00331B6C /* EventGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventGroup.h; sourceTree = "<group>"; };
-		816616D0190B044D00331B6C /* EventGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventGroup.m; sourceTree = "<group>"; };
-		816616D2190B044E00331B6C /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
-		816616D3190B044E00331B6C /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
-		816616D5190B044E00331B6C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		816616D6190B044E00331B6C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		816616D8190B044E00331B6C /* Semester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Semester.h; sourceTree = "<group>"; };
-		816616D9190B044E00331B6C /* Semester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Semester.m; sourceTree = "<group>"; };
-		816616DB190B044E00331B6C /* ServerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerObject.h; sourceTree = "<group>"; };
-		816616DC190B044E00331B6C /* ServerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerObject.m; sourceTree = "<group>"; };
 		816616E7190B04AC00331B6C /* NWICourseServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWICourseServerConnection.h; sourceTree = "<group>"; };
 		816616E8190B04AC00331B6C /* NWICourseServerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWICourseServerConnection.m; sourceTree = "<group>"; };
 		816616EA190B07D800331B6C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		816616EC190B0B2700331B6C /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
-		816616ED190B0B2700331B6C /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		816C9CF51907DCD4005D8243 /* ReCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		816C9CF81907DCD4005D8243 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		816C9CFA1907DCD4005D8243 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -98,6 +83,24 @@
 		816C9D221907DCD4005D8243 /* New IceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "New IceTests-Info.plist"; sourceTree = "<group>"; };
 		816C9D241907DCD4005D8243 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		816C9D261907DCD4005D8243 /* New_IceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = New_IceTests.m; sourceTree = "<group>"; };
+		8178ABE2192D056700352848 /* ServerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerObject.h; sourceTree = "<group>"; };
+		8178ABE3192D056700352848 /* ServerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerObject.m; sourceTree = "<group>"; };
+		8178ABE5192D056800352848 /* UserSectionTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSectionTable.h; sourceTree = "<group>"; };
+		8178ABE6192D056800352848 /* UserSectionTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSectionTable.m; sourceTree = "<group>"; };
+		8178ABE8192D056800352848 /* Semester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Semester.h; sourceTree = "<group>"; };
+		8178ABE9192D056800352848 /* Semester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Semester.m; sourceTree = "<group>"; };
+		8178ABEB192D056800352848 /* MutableServerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableServerObject.h; sourceTree = "<group>"; };
+		8178ABEC192D056800352848 /* MutableServerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableServerObject.m; sourceTree = "<group>"; };
+		8178ABEE192D056800352848 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		8178ABEF192D056800352848 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		8178ABF1192D056800352848 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		8178ABF2192D056800352848 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		8178ABF4192D056800352848 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		8178ABF5192D056800352848 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		8178ABF7192D056800352848 /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		8178ABF8192D056800352848 /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
+		8178ABFA192D07C000352848 /* Section+FormattedName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Section+FormattedName.h"; sourceTree = "<group>"; };
+		8178ABFB192D07C000352848 /* Section+FormattedName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Section+FormattedName.m"; sourceTree = "<group>"; };
 		81A01A6C1907EC07003CABBF /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		81A01AB119082734003CABBF /* NWIAuthenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIAuthenticator.h; sourceTree = "<group>"; };
 		81A01AB219082734003CABBF /* NWIAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIAuthenticator.m; sourceTree = "<group>"; };
@@ -241,28 +244,30 @@
 			isa = PBXGroup;
 			children = (
 				81A01A6B1907EC06003CABBF /* Model.xcdatamodeld */,
+				8178ABF7192D056800352848 /* Section.h */,
+				8178ABF8192D056800352848 /* Section.m */,
+				8178ABF4192D056800352848 /* Course.h */,
+				8178ABF5192D056800352848 /* Course.m */,
+				8178ABF1192D056800352848 /* Event.h */,
+				8178ABF2192D056800352848 /* Event.m */,
+				8178ABEE192D056800352848 /* User.h */,
+				8178ABEF192D056800352848 /* User.m */,
+				8178ABEB192D056800352848 /* MutableServerObject.h */,
+				8178ABEC192D056800352848 /* MutableServerObject.m */,
+				8178ABE8192D056800352848 /* Semester.h */,
+				8178ABE9192D056800352848 /* Semester.m */,
+				8178ABE5192D056800352848 /* UserSectionTable.h */,
+				8178ABE6192D056800352848 /* UserSectionTable.m */,
+				8178ABE2192D056700352848 /* ServerObject.h */,
+				8178ABE3192D056700352848 /* ServerObject.m */,
+				8178ABFA192D07C000352848 /* Section+FormattedName.h */,
+				8178ABFB192D07C000352848 /* Section+FormattedName.m */,
 				816616B4190AE82B00331B6C /* NWIServerConnection.h */,
 				816616B5190AE82B00331B6C /* NWIServerConnection.m */,
 				816616E7190B04AC00331B6C /* NWICourseServerConnection.h */,
 				816616E8190B04AC00331B6C /* NWICourseServerConnection.m */,
 				81EC49C2190BE2F500B370CA /* NWIEventsServerConnection.h */,
 				81EC49C3190BE2F500B370CA /* NWIEventsServerConnection.m */,
-				813D59931916CABC00C5B491 /* UserSectionTable.h */,
-				813D59941916CABC00C5B491 /* UserSectionTable.m */,
-				816616EC190B0B2700331B6C /* Course.h */,
-				816616ED190B0B2700331B6C /* Course.m */,
-				816616CF190B044D00331B6C /* EventGroup.h */,
-				816616D0190B044D00331B6C /* EventGroup.m */,
-				810A1508190C239F0094BC61 /* Event.h */,
-				810A1509190C239F0094BC61 /* Event.m */,
-				816616D2190B044E00331B6C /* Section.h */,
-				816616D3190B044E00331B6C /* Section.m */,
-				816616D5190B044E00331B6C /* User.h */,
-				816616D6190B044E00331B6C /* User.m */,
-				816616D8190B044E00331B6C /* Semester.h */,
-				816616D9190B044E00331B6C /* Semester.m */,
-				816616DB190B044E00331B6C /* ServerObject.h */,
-				816616DC190B044E00331B6C /* ServerObject.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -376,28 +381,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8178ABF6192D056800352848 /* Course.m in Sources */,
 				816C9D051907DCD4005D8243 /* main.m in Sources */,
 				81FBD3E1191919FE0095C32C /* UIColor+NWIHex.m in Sources */,
+				8178ABF9192D056800352848 /* Section.m in Sources */,
 				81FFCAF719154F5F006FD552 /* UIViewController+NWIViewController.m in Sources */,
-				816616DA190B044E00331B6C /* Semester.m in Sources */,
+				8178ABED192D056800352848 /* MutableServerObject.m in Sources */,
 				816616B6190AE82B00331B6C /* NWIServerConnection.m in Sources */,
-				816616D1190B044D00331B6C /* EventGroup.m in Sources */,
 				81FFCAFA19154FA8006FD552 /* NWIAgendaViewController.m in Sources */,
+				8178ABEA192D056800352848 /* Semester.m in Sources */,
 				81FBD3E4191921CF0095C32C /* NWIThemedNavigationController.m in Sources */,
+				8178ABF3192D056800352848 /* Event.m in Sources */,
+				8178ABE7192D056800352848 /* UserSectionTable.m in Sources */,
 				81EC49C4190BE2F500B370CA /* NWIEventsServerConnection.m in Sources */,
+				8178ABF0192D056800352848 /* User.m in Sources */,
 				81FFCAFF19155AD7006FD552 /* NWIEventsManager.m in Sources */,
 				81145E0719170CE800231C0F /* NWIEventTableViewController.m in Sources */,
-				813D59951916CABC00C5B491 /* UserSectionTable.m in Sources */,
 				81FBD3E7191930440095C32C /* NWISettingsTableViewController.m in Sources */,
-				816616EE190B0B2700331B6C /* Course.m in Sources */,
-				810A150A190C239F0094BC61 /* Event.m in Sources */,
-				816616D7190B044E00331B6C /* User.m in Sources */,
+				8178ABFC192D07C000352848 /* Section+FormattedName.m in Sources */,
 				816C9D091907DCD4005D8243 /* NWIAppDelegate.m in Sources */,
+				8178ABE4192D056700352848 /* ServerObject.m in Sources */,
 				816616E9190B04AC00331B6C /* NWICourseServerConnection.m in Sources */,
 				81A01AB319082734003CABBF /* NWIAuthenticator.m in Sources */,
-				816616DD190B044E00331B6C /* ServerObject.m in Sources */,
 				81A01AB619082A7B003CABBF /* NWIAuthenticationViewController.m in Sources */,
-				816616D4190B044E00331B6C /* Section.m in Sources */,
 				81A01A6D1907EC07003CABBF /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

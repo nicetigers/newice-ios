@@ -1,8 +1,8 @@
 //
 //  Course.h
-//  New Ice
+//  ReCal
 //
-//  Created by Naphat Sanguansin on 4/25/14.
+//  Created by Naphat Sanguansin on 5/21/14.
 //
 //
 
@@ -16,7 +16,6 @@
 
 @property (nonatomic, retain) NSString * courseListings;
 @property (nonatomic, retain) NSString * desc;
-@property (nonatomic, retain) NSString * professor;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSSet *sections;
 @property (nonatomic, retain) Semester *semester;

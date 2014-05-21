@@ -1,8 +1,8 @@
 //
 //  UserSectionTable.h
-//  New Ice
+//  ReCal
 //
-//  Created by Naphat Sanguansin on 5/4/14.
+//  Created by Naphat Sanguansin on 5/21/14.
 //
 //
 

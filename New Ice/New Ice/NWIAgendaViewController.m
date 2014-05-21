@@ -18,8 +18,7 @@
 #import "NWIServerConnection.h"
 
 #import "Event.h"
-#import "EventGroup.h"
-#import "Section.h"
+#import "Section+FormattedName.h"
 #import "Course.h"
 #import "UserSectionTable.h"
 #import "User.h"
@@ -127,7 +126,7 @@
     titleLabel.text = eventObject.eventTitle;
     
     UILabel *sectionLabel = (UILabel *) [container viewWithTag:3];
-    sectionLabel.text = [eventObject.eventGroup.section formattedName];
+    sectionLabel.text = [eventObject.section formattedName];
     
     UILabel *dateLabel = (UILabel *) [container viewWithTag:4];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -139,7 +138,7 @@
     
     UIView *sectionTag = (UIView *) [container viewWithTag:1];
     unsigned int hexColor = 0;
-    for (UserSectionTable *enrollment in eventObject.eventGroup.section.enrollment) {
+    for (UserSectionTable *enrollment in eventObject.section.enrollment) {
         if ([enrollment.user.netid isEqualToString:self.authenticator.netid]) {
             hexColor = [enrollment.color unsignedIntValue];
         }
@@ -190,7 +189,7 @@
         NSIndexPath *selected = [self.tableView indexPathsForSelectedRows].lastObject;
         Event *event = self.eventObjects[selected.row/2];
         unsigned int hexColor = 0;
-        for (UserSectionTable *enrollment in event.eventGroup.section.enrollment) {
+        for (UserSectionTable *enrollment in event.section.enrollment) {
             if ([enrollment.user.netid isEqualToString:self.authenticator.netid]) {
                 hexColor = [enrollment.color unsignedIntValue];
             }

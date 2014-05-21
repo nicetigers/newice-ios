@@ -12,8 +12,7 @@
 #import "NWIEventsManager.h"
 
 #import "Event.h"
-#import "EventGroup.h"
-#import "Section.h"
+#import "Section+FormattedName.h"
 
 @interface NWIEventTableViewController ()
 
@@ -41,7 +40,7 @@
     self.tfTitle.text = self.selectedEvent.eventTitle;
     self.tfLocation.text = self.selectedEvent.eventLocation;
     self.tfDescription.text = self.selectedEvent.eventDescription;
-    self.tfSection.text = self.selectedEvent.eventGroup.section.formattedName;
+    self.tfSection.text = self.selectedEvent.section.formattedName;
     
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];

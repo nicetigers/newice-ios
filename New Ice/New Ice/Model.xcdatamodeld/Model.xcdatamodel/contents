@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Course" representedClassName="Course" parentEntity="ServerObject" syncable="YES">
         <attribute name="courseListings" attributeType="String" syncable="YES"/>
         <attribute name="desc" attributeType="String" syncable="YES"/>
@@ -7,9 +7,10 @@
         <relationship name="sections" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Section" inverseName="course" inverseEntity="Section" syncable="YES"/>
         <relationship name="semester" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Semester" inverseName="courses" inverseEntity="Semester" syncable="YES"/>
     </entity>
-    <entity name="Event" representedClassName="Event" parentEntity="ServerObject" syncable="YES">
+    <entity name="Event" representedClassName="Event" parentEntity="MutableServerObject" syncable="YES">
         <attribute name="eventDescription" attributeType="String" syncable="YES"/>
         <attribute name="eventEnd" attributeType="Date" syncable="YES"/>
+        <attribute name="eventGroupID" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="eventLocation" attributeType="String" syncable="YES"/>
         <attribute name="eventStart" attributeType="Date" syncable="YES"/>
         <attribute name="eventTitle" attributeType="String" syncable="YES"/>
@@ -25,16 +26,13 @@
             </userInfo>
         </attribute>
         <attribute name="modifiedTime" attributeType="Date" syncable="YES"/>
-        <relationship name="eventGroup" maxCount="1" deletionRule="Nullify" destinationEntity="EventGroup" inverseName="events" inverseEntity="EventGroup" syncable="YES"/>
-    </entity>
-    <entity name="EventGroup" representedClassName="EventGroup" parentEntity="ServerObject" syncable="YES">
-        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="modifiedTime" attributeType="Date" syncable="YES"/>
         <attribute name="recurrenceDays" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recurrenceEndDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="recurrenceInterval" optional="YES" attributeType="Integer 32" syncable="YES"/>
-        <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="events" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Event" inverseName="eventGroup" inverseEntity="Event" syncable="YES"/>
-        <relationship name="section" maxCount="1" deletionRule="Nullify" destinationEntity="Section" inverseName="eventGroups" inverseEntity="Section" syncable="YES"/>
+        <relationship name="section" maxCount="1" deletionRule="Nullify" destinationEntity="Section" inverseName="events" inverseEntity="Section" syncable="YES"/>
+    </entity>
+    <entity name="MutableServerObject" representedClassName="MutableServerObject" isAbstract="YES" parentEntity="ServerObject" syncable="YES">
+        <attribute name="modified" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
     </entity>
     <entity name="Section" representedClassName="Section" parentEntity="ServerObject" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
@@ -50,7 +48,7 @@
         </attribute>
         <relationship name="course" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="sections" inverseEntity="Course" syncable="YES"/>
         <relationship name="enrollment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserSectionTable" inverseName="section" inverseEntity="UserSectionTable" syncable="YES"/>
-        <relationship name="eventGroups" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EventGroup" inverseName="section" inverseEntity="EventGroup" syncable="YES"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Event" inverseName="section" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="Semester" representedClassName="Semester" parentEntity="ServerObject" syncable="YES">
         <attribute name="endDate" attributeType="Date" syncable="YES"/>
@@ -73,23 +71,22 @@
         <relationship name="section" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Section" inverseName="enrollment" inverseEntity="Section" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="enrollment" inverseEntity="User" syncable="YES"/>
     </entity>
-    <fetchRequest name="AllEventGroups" entity="EventGroup"/>
+    <fetchRequest name="AllEvents" entity="Event"/>
     <fetchRequest name="CourseByID" entity="Course" predicateString="serverID == $SERV_ID"/>
     <fetchRequest name="Enrollment" entity="UserSectionTable" predicateString="section == $SECTION AND user == $USER"/>
     <fetchRequest name="EventByID" entity="Event" predicateString="serverID == $SERV_ID"/>
-    <fetchRequest name="EventGroupByID" entity="EventGroup" predicateString="serverID == $SERV_ID"/>
     <fetchRequest name="EventsBeforeDate" entity="Event" predicateString="eventStart >= $START_DATE"/>
     <fetchRequest name="EventsInRange" entity="Event" predicateString="eventStart >= $START_DATE AND eventEnd &lt;= $END_DATE"/>
     <fetchRequest name="SectionByID" entity="Section" predicateString="serverID == $SERV_ID"/>
     <fetchRequest name="UserByNetID" entity="User" predicateString="netid == $NET_ID"/>
     <elements>
         <element name="Course" positionX="-5420" positionY="-3537" width="128" height="120"/>
-        <element name="Event" positionX="-5211" positionY="-3133" width="128" height="163"/>
-        <element name="EventGroup" positionX="-5213" positionY="-3366" width="128" height="150"/>
+        <element name="Event" positionX="-5211" positionY="-3133" width="128" height="223"/>
         <element name="Section" positionX="-5213" positionY="-3546" width="128" height="118"/>
         <element name="Semester" positionX="-5609" positionY="-3532" width="128" height="103"/>
         <element name="ServerObject" positionX="-5364" positionY="-3852" width="128" height="58"/>
         <element name="User" positionX="-5697" positionY="-3339" width="128" height="103"/>
         <element name="UserSectionTable" positionX="-5456" positionY="-3058" width="128" height="105"/>
+        <element name="MutableServerObject" positionX="-5625" positionY="-3798" width="128" height="58"/>
     </elements>
 </model>
