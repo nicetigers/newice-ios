@@ -10,13 +10,17 @@
 #import "NWIThemedNavigationController.h"
 #import "UIColor+NWIHex.h"
 #import "NWIEventsManager.h"
+#import "NWIAppDelegate.h"
+#import "NWIAuthenticator.h"
 
 #import "Event.h"
 #import "Section+Extended.h"
+#import "User+Extended.h"
 
 @interface NWIEventTableViewController ()
 
-
+@property (nonatomic, weak) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, weak) NWIAuthenticator *authenticator;
 
 @end
 
@@ -159,5 +163,41 @@
     
 }
 */
+
+#pragma mark - Getters/Setters
+
+-(void)setSelectedEvent:(Event *)selectedEvent
+{
+    if (_selectedEvent != selectedEvent) {
+        _selectedEvent = selectedEvent;
+        self.color = nil;
+    }
+}
+
+-(UIColor *)color
+{
+    if (!_color) {
+        _color = [self.selectedEvent.section colorForUser:[User userByNetID:self.authenticator.netid inManagedObjectContext:self.managedObjectContext]];
+    }
+    return _color;
+}
+
+-(NSManagedObjectContext *)managedObjectContext
+{
+    if (!_managedObjectContext)
+    {
+        NWIAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        _managedObjectContext = delegate.managedObjectContext;
+    }
+    return _managedObjectContext;
+}
+-(NWIAuthenticator *)authenticator
+{
+    if (!_authenticator) {
+        NWIAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        _authenticator = delegate.authenticator;
+    }
+    return _authenticator;
+}
 
 @end
