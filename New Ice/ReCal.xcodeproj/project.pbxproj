@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		81145E0719170CE800231C0F /* NWIEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81145E0619170CE800231C0F /* NWIEventTableViewController.m */; };
+		8129B52919451F36003B84B1 /* NWIEventEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8129B52819451F36003B84B1 /* NWIEventEditTableViewController.m */; };
 		816616B6190AE82B00331B6C /* NWIServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616B5190AE82B00331B6C /* NWIServerConnection.m */; };
 		816616E9190B04AC00331B6C /* NWICourseServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 816616E8190B04AC00331B6C /* NWICourseServerConnection.m */; };
 		816616EB190B07D800331B6C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816616EA190B07D800331B6C /* CoreData.framework */; };
@@ -61,6 +62,8 @@
 /* Begin PBXFileReference section */
 		81145E0519170CE800231C0F /* NWIEventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIEventTableViewController.h; sourceTree = "<group>"; };
 		81145E0619170CE800231C0F /* NWIEventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NWIEventTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		8129B52719451F36003B84B1 /* NWIEventEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIEventEditTableViewController.h; sourceTree = "<group>"; };
+		8129B52819451F36003B84B1 /* NWIEventEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIEventEditTableViewController.m; sourceTree = "<group>"; };
 		816616B4190AE82B00331B6C /* NWIServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWIServerConnection.h; sourceTree = "<group>"; };
 		816616B5190AE82B00331B6C /* NWIServerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWIServerConnection.m; sourceTree = "<group>"; };
 		816616E7190B04AC00331B6C /* NWICourseServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWICourseServerConnection.h; sourceTree = "<group>"; };
@@ -202,6 +205,8 @@
 				81FFCAF919154FA8006FD552 /* NWIAgendaViewController.m */,
 				81145E0519170CE800231C0F /* NWIEventTableViewController.h */,
 				81145E0619170CE800231C0F /* NWIEventTableViewController.m */,
+				8129B52719451F36003B84B1 /* NWIEventEditTableViewController.h */,
+				8129B52819451F36003B84B1 /* NWIEventEditTableViewController.m */,
 				81FFCAFD19155AD7006FD552 /* NWIEventsManager.h */,
 				81FFCAFE19155AD7006FD552 /* NWIEventsManager.m */,
 				81FBD3E5191930440095C32C /* NWISettingsTableViewController.h */,
@@ -403,6 +408,7 @@
 				81FFCAFF19155AD7006FD552 /* NWIEventsManager.m in Sources */,
 				81145E0719170CE800231C0F /* NWIEventTableViewController.m in Sources */,
 				81FBD3E7191930440095C32C /* NWISettingsTableViewController.m in Sources */,
+				8129B52919451F36003B84B1 /* NWIEventEditTableViewController.m in Sources */,
 				8178ABFF192D1F4E00352848 /* User+Extended.m in Sources */,
 				8178ABFC192D07C000352848 /* Section+Extended.m in Sources */,
 				816C9D091907DCD4005D8243 /* NWIAppDelegate.m in Sources */,

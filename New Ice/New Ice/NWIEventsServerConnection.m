@@ -76,26 +76,43 @@
         NSLog(@"Error parsing downloaded events. \nError: %@", error.description);
         return;
     }
+//    if (clear) {
+//        NSManagedObjectModel *model = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel;
+//        NSFetchRequest *fetchRequest = [model fetchRequestFromTemplateWithName:@"AllEvents" substitutionVariables:@{}];
+//        NSArray *fetched = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+//        for (Event *event in fetched) {
+//            [self.managedObjectContext deleteObject:event];
+//        }
+//        [self.managedObjectContext save:&error];
+//        if (error) {
+//            NSLog(@"Error deleting events. \nError: %@", error.description);
+//            return;
+//        }
+//    }
+    NSMutableSet *toBeDeleted;
     if (clear) {
         NSManagedObjectModel *model = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel;
         NSFetchRequest *fetchRequest = [model fetchRequestFromTemplateWithName:@"AllEvents" substitutionVariables:@{}];
         NSArray *fetched = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-        for (Event *event in fetched) {
-            [self.managedObjectContext deleteObject:event];
-        }
-        [self.managedObjectContext save:&error];
-        if (error) {
-            NSLog(@"Error deleting events. \nError: %@", error.description);
-            return;
-        }
+        toBeDeleted = [NSMutableSet setWithArray:fetched];
     }
     NSInteger count = 0;
     
     for (NSDictionary *eventDict in eventsArray) {
-        [self updateEventWithEventDict:eventDict];
+        Event *eventObject = [self updateEventWithEventDict:eventDict];
+        if (clear) {
+            if ([toBeDeleted containsObject:eventObject]) {
+                [toBeDeleted removeObject:eventObject];
+            }
+        }
         count++;
     }
     NSLog(@"processed %d events", (int) count);
+    if (clear) {
+        for (Event *eventObject in toBeDeleted) {
+            [self.managedObjectContext deleteObject:eventObject];
+        }
+    }
     [self.managedObjectContext save:&error];
     if (error) {
         NSLog(@"Error saving events. \nError: %@", error.description);

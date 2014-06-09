@@ -16,6 +16,7 @@
 #import "NWIEventsManager.h"
 #import "NWIAuthenticator.h"
 #import "NWIServerConnection.h"
+#import "NWIThemedNavigationController.h"
 
 #import "Event.h"
 #import "Section+Extended.h"
@@ -76,6 +77,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NWIThemedNavigationController *navigationController = (NWIThemedNavigationController *) self.navigationController;
+    [navigationController.navigationBar setBarTintColor:nil];
+    [navigationController.navigationBar setTintColor:[UIColor colorFromHexString:PRIMARY_COLOR_WHITE_THEME]];
+    [navigationController setViewControllerForPreferredStatusBarStyle:nil];
+}
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
 }
 
 #pragma mark - Table View

@@ -13,7 +13,7 @@
 @interface NWIEventTableViewController : UITableViewController
 
 @property (nonatomic, strong) Event *selectedEvent;
-@property (nonatomic, strong) UIColor *color;
+
 @property (weak, nonatomic) IBOutlet UITextField *tfTitle;
 @property (weak, nonatomic) IBOutlet UITextField *tfDate;
 @property (weak, nonatomic) IBOutlet UITextField *tfStartTime;

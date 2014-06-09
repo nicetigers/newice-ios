@@ -17,10 +17,14 @@
 #import "Section+Extended.h"
 #import "User+Extended.h"
 
+#import "NWIEventEditTableViewController.h"
+#import "NWIAgendaViewController.h"
+
 @interface NWIEventTableViewController ()
 
 @property (nonatomic, weak) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, weak) NWIAuthenticator *authenticator;
+@property (nonatomic, strong) UIColor *color;
 
 @end
 
@@ -37,10 +41,42 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     
     //self.navigationItem.title = self.selectedEvent.eventTitle;
     
+    
+    
+    
+    //[[UINavigationBar appearance] setBackgroundColor:[UIColor redColor]];
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    NWIThemedNavigationController *navigationController = (NWIThemedNavigationController *) self.navigationController;
+    [navigationController.navigationBar setBarTintColor:self.color];
+    [navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [navigationController setViewControllerForPreferredStatusBarStyle:self];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+    [self refreshLabels];
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self refreshLabels];
+}
+
+-(void)refreshLabels
+{
     self.tfTitle.text = self.selectedEvent.eventTitle;
     self.tfLocation.text = self.selectedEvent.eventLocation;
     self.tfDescription.text = self.selectedEvent.eventDescription;
@@ -54,33 +90,7 @@
     self.tfDate.text = [dateFormatter stringFromDate:self.selectedEvent.eventStart];
     self.tfStartTime.text = [timeFormatter stringFromDate:self.selectedEvent.eventStart];
     self.tfEndtime.text = [timeFormatter stringFromDate:self.selectedEvent.eventEnd];
-    
     self.tvType.text = [self.eventsManager eventTypeForKey:self.selectedEvent.eventType];
-    
-    //[[UINavigationBar appearance] setBackgroundColor:[UIColor redColor]];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    NWIThemedNavigationController *navigationController = (NWIThemedNavigationController *) self.navigationController;
-    [navigationController.navigationBar setBarTintColor:self.color];
-    [navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [navigationController setViewControllerForPreferredStatusBarStyle:self];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    NWIThemedNavigationController *navigationController = (NWIThemedNavigationController *) self.navigationController;
-    [navigationController.navigationBar setBarTintColor:nil];
-    [navigationController.navigationBar setTintColor:[UIColor colorFromHexString:PRIMARY_COLOR_WHITE_THEME]];
-    [navigationController setViewControllerForPreferredStatusBarStyle:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -154,15 +164,17 @@
 }
 
 #pragma mark - Navigation
-/*
+
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
+    if ([segue.destinationViewController isKindOfClass:[NWIEventEditTableViewController class]]) {
+        NWIEventEditTableViewController *destinationVC = segue.destinationViewController;
+        destinationVC.selectedEvent = self.selectedEvent;
+    }
 }
-*/
 
 #pragma mark - Getters/Setters
 
